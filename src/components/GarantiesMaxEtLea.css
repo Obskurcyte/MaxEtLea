@@ -1,0 +1,26 @@
+.satisfactions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.inner-satisfaction {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  text-align: center;
+}
+
+.fas {
+  color: #09AE99;
+  font-size: 45px;
+}
+
+.fa-dolly {
+  color: orange;
+}
+
+.fa-headphones-alt {
+  color: darkgreen;
+}
+
+

@@ -1,0 +1,85 @@
+.baby-container  {
+  display: flex;
+  background: linear-gradient(#F5F4F4, 5%, white, 90%, lightgray);
+  height: 500px;
+  max-width: 100%;
+}
+
+.subheadtitle {
+  color: #5A5A5A;
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.6em;
+  letter-spacing: 2.5px;
+}
+.headtitle {
+  color: #E72C59;
+  font-size: 33px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.8em;
+  letter-spacing: 2.5px;
+}
+.baby-photo {
+  width: 30%;
+  height: 60%;
+  position: relative;
+  top: 10%;
+  left: 10%;
+}
+
+.products-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.eveil-button {
+  border: none;
+  font-size: 20px;
+  transition: all .2s ease-in-out;
+  fill: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #E72C59;
+  border-radius: 8px 8px 8px 8px;
+  padding: 18px 30px 18px 30px;
+}
+
+.eveil-button:hover {
+  transform: scale(1.2);
+}
+.eveil {
+  width: 100%;
+  margin-top: 5%;
+  text-align: center;
+  position: relative;
+  left: 20%;
+  max-width: 40%;
+}
+
+.emerveillement {
+  background-color: #E72C59;
+  display: flex;
+  height: 50px;
+  padding: 4% 15%;
+}
+
+.emerveillement-titre {
+  position: relative;
+  bottom: 20%;
+}
+.best-jouets {
+  padding: 5%;
+}
+.emerveillement-button {
+  background-color: #E72C59;
+  box-shadow: #282c34;
+  padding: 1% 5%;
+  font-size: 20px;
+  color: white;
+  transition: all .2s ease-in-out;
+  margin-left: 7%;
+}
+.emerveillement-button:hover {
+  transform: scale(1.2);
+}

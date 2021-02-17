@@ -1,0 +1,13 @@
+.footer-container {
+  margin-top: 5%;
+  display: flex;
+  padding: 2%;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}

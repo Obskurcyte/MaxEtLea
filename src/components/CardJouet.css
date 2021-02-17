@@ -1,0 +1,19 @@
+.card-container {
+  background-color: lightgray;
+  padding: 2%;
+}
+
+.jouet-button {
+  color: #FC374F;
+  border-color: #FC374F;
+  padding: 3% 5%;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: all .2s ease-in-out;
+}
+
+.jouet-button:hover {
+  transform: scale(1.2);
+  background-color: #FC374F;
+  color: white;
+}
