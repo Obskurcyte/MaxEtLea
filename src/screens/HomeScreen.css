@@ -61,25 +61,39 @@
   background-color: #E72C59;
   display: flex;
   height: 50px;
-  padding: 4% 15%;
+  padding: 4% 20%;
 }
 
 .emerveillement-titre {
-  position: relative;
-  bottom: 20%;
+  color: #f8f6f3;
+  font-size: 22px;
+  font-weight: 549;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .best-jouets {
   padding: 5%;
 }
 .emerveillement-button {
   background-color: #E72C59;
-  box-shadow: #282c34;
   padding: 1% 5%;
   font-size: 20px;
   color: white;
   transition: all .2s ease-in-out;
   margin-left: 7%;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%)
 }
 .emerveillement-button:hover {
   transform: scale(1.2);
+}
+
+.unique {
+  text-align: center;
+}
+.unique-title {
+  color: #666666;
+  font-size: 33px;
+  font-weight: 300;
+  line-height: 1.6em;
+  letter-spacing: 1px;
 }

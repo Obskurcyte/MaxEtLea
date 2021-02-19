@@ -1,3 +1,10 @@
 .testimony-container {
   text-align: center;
 }
+
+.testimony-title {
+  color: #717171;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}

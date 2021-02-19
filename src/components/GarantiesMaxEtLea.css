@@ -23,4 +23,24 @@
   color: darkgreen;
 }
 
+.garanties-title  {
+  color: #717171;
+  font-size: 38px;
+  font-weight: 550;
+  letter-spacing: 1.5px;
+}
+
+.garanties-undertitle {
+  color: #717171;
+  line-height: 1.2em;
+  letter-spacing: 1px;
+}
+
+.garanties-paragraph {
+  color: #9F9F9F;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6em;
+  letter-spacing: 0.4px;
+}
 

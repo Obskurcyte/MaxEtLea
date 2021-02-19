@@ -5,7 +5,7 @@ import './Testimony.css';
 const Testimony = props => {
   return (
     <div className="testimony-container">
-      <h1>Nos parents témoignent</h1>
+      <h1 className="testimony-title">Nos parents témoignent</h1>
     </div>
   )
 };

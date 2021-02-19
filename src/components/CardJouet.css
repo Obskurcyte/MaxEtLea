@@ -1,19 +1,52 @@
 .card-container {
-  background-color: lightgray;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
+  transition: background 0.7s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin: 10px 10px 10px 10px;
   padding: 2%;
 }
 
 .jouet-button {
-  color: #FC374F;
-  border-color: #FC374F;
-  padding: 3% 5%;
-  border-radius: 20px;
-  font-size: 1rem;
-  transition: all .2s ease-in-out;
+  color: #E72763;
+  background-color: rgba(2, 1, 1, 0);
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #E72763;
+  border-radius: 5px 5px 5px 5px;
+  padding: 8px 10px 5px 10px;
+  transition: all .3s;
 }
 
+.jouet1-img{
+  max-width: 100%;
+}
+
+.jouet2-img{
+  max-width: 50%;
+}
 .jouet-button:hover {
-  transform: scale(1.2);
-  background-color: #FC374F;
+  background-color: #E72763;
   color: white;
+}
+
+.best-seller {
+  color: #E72C59;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.jouet-title {
+  color: #545454;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.jouet-text {
+  color: #8D8D8D;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.5;
 }

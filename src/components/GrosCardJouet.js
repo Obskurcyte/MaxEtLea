@@ -1,20 +1,16 @@
 import React from 'react';
 import "./CardJouet.css"
 
-const CardJouet = props => {
+const GrosCardJouet = props => {
   return (
     <div className="card-container">
-      <div>
       <h2 className="best-seller">{props.seller}</h2>
       <h1 className="jouet-title">{props.title}</h1>
       <h5 className="jouet-text">{props.description}</h5>
       <button className="jouet-button">Voir produit</button>
-      </div>
-      <div>
-        <img src="https://maxandlea.com/wp-content/uploads/2020/10/VueProduit-Tablette-MaxAndLea-2-min.png" alt="" className={props.className}/>
-      </div>
+      <img src="https://maxandlea.com/wp-content/uploads/2020/10/VueProduit-Tablette-MaxAndLea-2-min.png" alt="" className={props.className}/>
     </div>
   )
 };
 
-export default CardJouet
+export default GrosCardJouet;
