@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import "./Header.css"
 const Header = () => {
   return (
@@ -10,11 +11,32 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto nav-bar">
             <div className="img-container"><img src="https://maxandlea.com/wp-content/uploads/2020/05/Logo-Max-et-Lea_Plan-de-travail-1-1536x567.png" alt="" className="img-navbar"/></div>
-            <Nav.Link href="#home">ACCUEIL</Nav.Link>
-            <Nav.Link href="#link">SHOP</Nav.Link>
-            <Nav.Link href="#link">A PROPOS</Nav.Link>
-            <Nav.Link href="#link">CONTACT</Nav.Link>
-            <Nav.Link href="#link">BLOG</Nav.Link>
+            <LinkContainer to="/">
+              <Nav.Link>ACCUEIL</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/shop">
+              <Nav.Link >SHOP</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <Nav.Link>A PROPOS</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/contact">
+              <Nav.Link>CONTACT</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/blog">
+              <Nav.Link>BLOG</Nav.Link>
+            </LinkContainer>
+            <div className="account-shopping">
+              <div className="account-icon">
+              <i className="fas fa-id-card"/>
+              <LinkContainer to="/login">
+                <Nav.Link>Mon Compte</Nav.Link>
+              </LinkContainer>
+              </div>
+              <LinkContainer to="/blog">
+                <Nav.Link><i className="fas fa-shopping-basket" /></Nav.Link>
+              </LinkContainer>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

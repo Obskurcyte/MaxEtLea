@@ -1,0 +1,36 @@
+.register-form {
+  padding: 2% 5%;
+  width: 20%;
+  background-color: white;
+  height: 70%;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
+  margin: 3% auto;
+}
+
+.register-form-container {
+  background: linear-gradient(#F5F4F4, 5%, white, 98%, lightgray);
+  height: 600px;
+}
+
+.user-register-email {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 30px;
+  margin-top: 5%;
+}
+
+.register-connexion {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+
+.connect-link {
+  margin-top: 7%;
+}
+
+.connect-link a{
+  color: #0990ea;
+}

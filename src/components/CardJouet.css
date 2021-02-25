@@ -50,3 +50,17 @@
   letter-spacing: 1px;
   line-height: 1.5;
 }
+
+
+.jouet-card:nth-child(1) {
+    flex: 2
+}
+
+.jouet-description {
+  width: 80%;
+  padding: 3% 5%;
+}
+
+.jouet-img {
+  margin-top: 10%;
+}
