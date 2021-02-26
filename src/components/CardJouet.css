@@ -17,6 +17,10 @@
   transition: all .3s;
 }
 
+
+.jouet-button a {
+  color: #E72763;
+}
 .jouet1-img{
   max-width: 100%;
 }
@@ -24,9 +28,12 @@
 .jouet2-img{
   max-width: 50%;
 }
+.jouet-button a:hover {
+  color: white;
+}
+
 .jouet-button:hover {
   background-color: #E72763;
-  color: white;
 }
 
 .best-seller {

@@ -8,6 +8,9 @@ import ContactScreen from "./screens/ContactScreen";
 import ShopScreen from "./screens/ShopScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import PlayBoardScreen from "./screens/PlayBoardScreen";
+import XylophoneScreen from "./screens/XylophoneScreen";
+import TourScreen from "./screens/TourScreen";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
       <Route path="/shop" component={ShopScreen} />
       <Route path="/login" component={LoginScreen} />
       <Route path="/register" component={RegisterScreen} />
+      <Route path="/playboard" component={PlayBoardScreen} />
+      <Route path="/xylophone" component={XylophoneScreen} />
+      <Route path="/tour" component={TourScreen} />
     </Router>
   );
 }

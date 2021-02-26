@@ -7,7 +7,7 @@ const GrosCardJouet = props => {
       <h2 className="best-seller">{props.seller}</h2>
       <h1 className="jouet-title">{props.title}</h1>
       <h5 className="jouet-text">{props.description}</h5>
-      <button className="jouet-button">Voir produit</button>
+      <button className="jouet-button"><a href="/playboard">Voir produit</a></button>
       <img src="https://maxandlea.com/wp-content/uploads/2020/10/VueProduit-Tablette-MaxAndLea-2-min.png" alt="" className={props.className}/>
     </div>
   )
