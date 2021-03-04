@@ -29,10 +29,7 @@ const ShopScreen = props => {
         <Footer />
       </div>
     </div>
-
-
   )
-
 };
 
 export default ShopScreen;

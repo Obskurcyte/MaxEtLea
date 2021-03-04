@@ -55,3 +55,20 @@ a:hover{
 .account-icon {
   display: flex;
 }
+
+.img-pays {
+  height: 10%;
+  margin-top: 5.1%;
+}
+
+.button-pays {
+  background-color: white;
+  border: none;
+  height: 30px;
+  margin-top: 3.8%;
+}
+
+.fa-sort-down {
+  color: lightgray!important;
+  font-size: 30px!important;
+}
