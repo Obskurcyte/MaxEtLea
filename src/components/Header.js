@@ -54,7 +54,7 @@ const Header = () => {
               <Nav.Link>{t("Navbar.3")}</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/contact">
-              <Nav.Link>{t("Navbar.4")}</Nav.Link>
+              <Nav.Link>{t("Navbar.4")}</Nav.Link>cd maxandle
             </LinkContainer>
             <LinkContainer to="/blog">
               <Nav.Link>{t("Navbar.5")}</Nav.Link>
@@ -73,6 +73,7 @@ const Header = () => {
               <MenuItem onClick={() => handleClose('en')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt=""/></MenuItem>
               <MenuItem onClick={() => handleClose('esp')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt=""/></MenuItem>
               <MenuItem onClick={() => handleClose('fr')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt=""/></MenuItem>
+              <MenuItem onClick={() => handleClose('al')}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/langfr-225px-Flag_of_Germany.svg.png" className="drapeau-allemand" alt=""/></MenuItem>
 
             </Menu>
             <div className="account-shopping">

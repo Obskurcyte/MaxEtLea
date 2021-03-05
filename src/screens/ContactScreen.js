@@ -23,34 +23,71 @@ const ContactScreen = props => {
       <div className="contact-form">
         <Formik
           initialValues={initialValues}
-          onSubmit={values => console.log(values)}
+          onSubmit={values => {
+              const response = fetch(
+                /* Je ne l'ai pas crée mais de ce que j'ai compris c'est toi qui t'en occupe */
+                `api/contact`,
+                {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    nom: values.nom,
+                    prenom: values.prenom,
+                    email: values.email,
+                    sujet: values.sujet,
+                    message: values.message
+                  })
+                }
+              );
+          }
+          }
         >
           {props => (
             <div>
               <div className="nomprenom">
                 <div className="nom">
                   <label>Nom<span className="star"> *</span></label>
-                  <input type="text" onChange={props.values.nom}/>
+                  <input
+                    type="text"
+                    onChange={props.handleChange('nom')}
+                    value={props.values.nom}/>
                 </div>
                 <div className="prenom">
                   <label>Prénom<span className="star"> *</span></label>
-                  <input type="text" onChange={props.values.prenom}/>
+                  <input
+                    type="text"
+                    onChange={props.handleChange('prenom')}
+                    value={props.values.prenom}/>
                 </div>
               </div>
               <div className="email input-container">
                 <label>Email<span className="star"> *</span></label>
-                <input type="text" onChange={props.values.email}/>
+                <input
+                  type="text"
+                  onChange={props.handleChange('email')}
+                  value={props.values.email}
+                />
               </div>
               <div className="sujet input-container">
                 <label>Sujet<span className="star"> *</span></label>
-                <input type="text" onChange={props.values.sujet}/>
+                <input
+                  type="text"
+                  onChange={props.handleChange("sujet")}
+                  value={props.values.sujet}
+                />
               </div>
               <div className="message input-container">
                 <label>Message<span className="star"> *</span></label>
-                <input type="text-area" onChange={props.values.message}/>
+                <input
+                  type="text-area"
+                  onChange={props.handleChange('message')}
+                  value={props.values.message}
+                />
               </div>
               <div className="container-send">
-                <button className="send">Envoyer</button>
+                <button className="send" onClick={props.handleSubmit}>Envoyer</button>
               </div>
             </div>
           )}
