@@ -11,10 +11,12 @@ import RegisterScreen from "./screens/RegisterScreen";
 import PlayBoardScreen from "./screens/PlayBoardScreen";
 import XylophoneScreen from "./screens/XylophoneScreen";
 import TourScreen from "./screens/TourScreen";
+import CartScreen from "./screens/CartScreen";
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {Provider} from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import productReducer from "./store/reducers/product";
+import {AppProvider} from "./context/AppContext";
 
 
 const rootReducer = combineReducers({
@@ -26,6 +28,7 @@ const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 function App() {
   return (
+    <AppProvider>
     <Provider store={store}>
     <Suspense fallback="loading">
     <Router>
@@ -39,9 +42,11 @@ function App() {
       <Route path="/playboard" component={PlayBoardScreen} />
       <Route path="/xylophone" component={XylophoneScreen} />
       <Route path="/tour" component={TourScreen} />
+      <Route path="/cart" component={CartScreen} />
     </Router>
     </Suspense>
     </Provider>
+    </AppProvider>
   );
 }
 

@@ -13,6 +13,12 @@ import {useContext} from 'react';
 const Header = () => {
 
   const [cart, setCart] = useContext(AppContext);
+  let totalPrice1 = 0;
+  if (cart) {
+    for (let data in cart.products) {
+      totalPrice1 += parseFloat(cart.products[data].totalPrice)
+    }
+  }
   const productCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductCount : '';
   const totalPrice = (null !== cart && Object.keys(cart).length) ? cart.totalProductsPrice: '';
 
@@ -36,7 +42,6 @@ const Header = () => {
 
   console.log('cart', cart)
   return (
-    <AppProvider>
       <Navbar bg="light" expand="lg" collapseOnSelect>
         <div style={{backgroundColor: '#E72C59', textAlign: 'center'}}>
           <h1 style={{margin: 0, color: 'white'}}>Livraison GRATUITE en Europe (3-5 jours) à partir de 30€ d'achat</h1>
@@ -54,7 +59,7 @@ const Header = () => {
               <Nav.Link>{t("Navbar.3")}</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/contact">
-              <Nav.Link>{t("Navbar.4")}</Nav.Link>cd maxandle
+              <Nav.Link>{t("Navbar.4")}</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/blog">
               <Nav.Link>{t("Navbar.5")}</Nav.Link>
@@ -83,12 +88,12 @@ const Header = () => {
                 <Nav.Link>{t("Navbar.6")}</Nav.Link>
               </LinkContainer>
               </div>
-              <LinkContainer to="/blog">
+              <LinkContainer to="/cart">
                 <Nav.Link>
                   <div className="woo-next-cart-wrap">
                     {productCount ? <span style={{color: 'black'}}>{productCount}</span> : ''}
                     <i className="fas fa-shopping-basket" />
-                    {totalPrice ? <span>${totalPrice.toFixed(2)}</span> : ''}
+                    {totalPrice1 ? <span>€{totalPrice1.toFixed(2)}</span> : ''}
 
                   </div>
                 </Nav.Link>
@@ -97,7 +102,6 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </AppProvider>
   )
 }
 

@@ -38,16 +38,15 @@ const PRODUCTS_QUERY = gql `query GetProducts {
 export const getProducts = () => {
   return async dispatch => {
     const result = await client.query({query: PRODUCTS_QUERY});
-    const product = result.data.products.nodes
-      dispatch({
-        type: GET_PRODUCTS,
-        products: product
-      })
+    const product = result.data.products.nodes;
+    dispatch({
+      type: GET_PRODUCTS,
+      product,
+    })
     }
+};
 
-}
-
-export const getProductsLocal = () => {
+/*export const getProductsLocal = () => {
   return dispatch => {
     if ( process.browser) {
       let cartData = localStorage.getItem('woo-next-cart');
@@ -59,3 +58,5 @@ export const getProductsLocal = () => {
     }
   }
 }
+
+ */

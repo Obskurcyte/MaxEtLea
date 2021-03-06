@@ -12,7 +12,7 @@ const productReducer = (state = initialState, action) => {
     case GET_PRODUCTS :
       return {
         ...state,
-        products: action.products
+        products: action.product
       }
     case GET_PRODUCTS_LOCAL :
       return {

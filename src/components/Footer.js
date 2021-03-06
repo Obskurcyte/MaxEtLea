@@ -1,9 +1,12 @@
 import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import './Footer.css';
+import {useTranslation} from "react-i18next";
 
 
 const Footer = () => {
+
+  const { t, i18n } = useTranslation();
   return (
     <footer>
       <div className="footer-container">
@@ -13,20 +16,20 @@ const Footer = () => {
           <img src="https://maxandlea.com/wp-content/uploads/2020/11/127FR.png" alt="" className="img-footer-arbre"/>
         </div>
           <div className="footer-column">
-            <a href="#">A propos</a>
-            <a href="#">L'Equipe</a>
-            <a href="#">Contactez-nous</a>
-            <a href="#">Mentions légales</a>
-            <a href="#">CGV</a>
+            <a href="#">{t("Footer.1")}</a>
+            <a href="#">{t("Footer.2")}</a>
+            <a href="#">{t("Footer.3")}</a>
+            <a href="#">{t("Footer.4")}</a>
+            <a href="#">{t("Footer.5")}</a>
           </div>
           <div className="footer-column">
             <div style={{display: "flex", marginBottom: '10%'}}>
               <i className="fas fa-user-circle"/>
-              <a href="#">Se connecter</a>
+              <a href="#">{t("Footer.6")}</a>
             </div>
             <div style={{display: "flex", marginBottom: '15%'}}>
               <i className="fas fa-user-plus"/>
-              <a href="#">S'inscrire</a>
+              <a href="#">{t("Footer.7")}</a>
             </div>
             <div style={{display: "flex"}}>
               <i className="fab fa-facebook"/>

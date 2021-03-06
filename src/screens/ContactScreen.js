@@ -3,8 +3,11 @@ import Header from "../components/Header";
 import "./ContactScreen.css";
 import {Formik} from 'formik'
 import Footer from "../components/Footer";
+import {useTranslation} from "react-i18next";
 
 const ContactScreen = props => {
+  const { t, i18n } = useTranslation();
+
 
   const initialValues = {
     nom: '',
@@ -17,7 +20,7 @@ const ContactScreen = props => {
     <div>
       <Header />
       <div className="contact">
-          <h1 className="contact-us">Contactez nous</h1>
+          <h1 className="contact-us">{t("Contact.1")}</h1>
       </div>
       <div className="contact-wrapper">
       <div className="contact-form">
@@ -48,14 +51,14 @@ const ContactScreen = props => {
             <div>
               <div className="nomprenom">
                 <div className="nom">
-                  <label>Nom<span className="star"> *</span></label>
+                  <label>{t("Contact.2")}<span className="star"> *</span></label>
                   <input
                     type="text"
                     onChange={props.handleChange('nom')}
                     value={props.values.nom}/>
                 </div>
                 <div className="prenom">
-                  <label>Prénom<span className="star"> *</span></label>
+                  <label>{t("Contact.3")}<span className="star"> *</span></label>
                   <input
                     type="text"
                     onChange={props.handleChange('prenom')}
@@ -63,7 +66,7 @@ const ContactScreen = props => {
                 </div>
               </div>
               <div className="email input-container">
-                <label>Email<span className="star"> *</span></label>
+                <label>{t("Contact.4")}<span className="star"> *</span></label>
                 <input
                   type="text"
                   onChange={props.handleChange('email')}
@@ -71,7 +74,7 @@ const ContactScreen = props => {
                 />
               </div>
               <div className="sujet input-container">
-                <label>Sujet<span className="star"> *</span></label>
+                <label>{t("Contact.5")}<span className="star"> *</span></label>
                 <input
                   type="text"
                   onChange={props.handleChange("sujet")}
@@ -79,7 +82,7 @@ const ContactScreen = props => {
                 />
               </div>
               <div className="message input-container">
-                <label>Message<span className="star"> *</span></label>
+                <label>{t("Contact.6")}<span className="star"> *</span></label>
                 <input
                   type="text-area"
                   onChange={props.handleChange('message')}
@@ -87,7 +90,7 @@ const ContactScreen = props => {
                 />
               </div>
               <div className="container-send">
-                <button className="send" onClick={props.handleSubmit}>Envoyer</button>
+                <button className="send" onClick={props.handleSubmit}>{t("Contact.7")}</button>
               </div>
             </div>
           )}

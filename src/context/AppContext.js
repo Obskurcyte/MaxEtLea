@@ -4,7 +4,6 @@ export const AppContext = React.createContext([
   {},
   newCart => {}
 ]);
-let tableau = []
 
 export const AppProvider = props => {
   const [cart, setCart] = useState(null);

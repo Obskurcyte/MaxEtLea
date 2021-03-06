@@ -33,6 +33,8 @@ const HomeScreen = () => {
   }
 
 
+
+
   /*const [products, setProducts] = useState([]);
   useEffect(() => {
     (async function() {
@@ -43,11 +45,6 @@ const HomeScreen = () => {
   }, [products])
 
    */
-
-
-
-
-
 
 
   const { t, i18n } = useTranslation();
