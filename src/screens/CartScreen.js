@@ -23,6 +23,7 @@ const CartScreen = props => {
     }
   }
 
+
   const handleRemoveProduct = () => {
 
   };
@@ -31,16 +32,17 @@ const CartScreen = props => {
   return (
     <div>
       <Header />
-      <div className="panier-container">
+      <div className="container-cart" >
 
+        <h1>Votre panier</h1>
         { cart ? (
           <div className="container">
-            <h1>Votre panier</h1>
-          <Table striped bordered hover>
+          <Table>
             <thead>
             <tr>
-              <th></th>
-              <th>Produit</th>
+              <th className="container-croix" />
+              <th />
+              <th className="container-produit">Produit</th>
               <th>Prix</th>
               <th>Quantité</th>
               <th>Sous-total</th>
@@ -60,7 +62,7 @@ const CartScreen = props => {
                 )
               )
             }
-            <tr className='gras'>
+            {/*  <tr className='gras'>
               <div>
                 <td className="croix"><button className="button-supp">x</button></td>
                 <td><img src="https://maxandlea.com/wp-content/uploads/2020/07/XYLOPHONE-TABS-compress-150x150.jpg" className="cart-image" alt=""/></td>
@@ -84,10 +86,13 @@ const CartScreen = props => {
                   </div>
               </td>
             </tr>
+              */}
             </tbody>
           </Table>
           </div>
         ): ''}
+
+          <button className="cart-valide">Valider la commande</button>
       </div>
     </div>
   )

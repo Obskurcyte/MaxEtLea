@@ -85,7 +85,7 @@ const XylophoneScreen = props => {
     }
   };
 
-  const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) => {
+   const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) => {
     const updatedProducts = getUpdatedProducts(existingCart.products, productArray[2], qtyToBeAdded, newQty);
     const addPrice = (total, item) => {
 
