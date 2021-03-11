@@ -72,7 +72,9 @@ const XylophoneScreen = props => {
     const newProduct = createNewProduct(product, productPrice, 1)
     newCart.products.push(newProduct);
     localStorage.setItem('woo-next-cart', JSON.stringify(newCart));
+    console.log('newCart', newCart)
     return newCart
+
   };
 
   const createNewProduct = (product, productPrice, qty) => {
@@ -85,30 +87,34 @@ const XylophoneScreen = props => {
     }
   };
 
-   const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) => {
-    const updatedProducts = getUpdatedProducts(existingCart.products, productArray[2], qtyToBeAdded, newQty);
-    const addPrice = (total, item) => {
 
-      total.totalPrice = item.totalPrice;
-      total.qty += item.qty;
-      console.log('total', total)
-      console.log('item', item)
-      console.log(total)
-      return total;
-    }
+    const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) => {
+        const updatedProducts = getUpdatedProducts(existingCart.products, productArray[2], qtyToBeAdded, newQty);
+        const addPrice = (total, item) => {
 
-    // Loop through the updated product array and add the totalPrice of each item to get the totalPrice
-    let total = updatedProducts.reduce(addPrice, {totalPrice: 0, qty: 0})
+          total.totalPrice = item.totalPrice;
+          total.qty += item.qty;
+          console.log('total', total)
+          console.log('item', item)
+          console.log(total)
+          return total;
+        }
 
-    const updatedCart = {
-      products: updatedProducts,
-      totalProductCount: parseInt(total.qty),
-      totalProductsPrice: parseFloat(total.totalPrice)
-    }
+        // Loop through the updated product array and add the totalPrice of each item to get the totalPrice
+        let total = updatedProducts.reduce(addPrice, {totalPrice: 0, qty: 0})
 
-    localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart))
-    return updatedCart
-  };
+        const updatedCart = {
+          products: updatedProducts,
+          totalProductCount: parseInt(total.qty),
+          totalProductsPrice: parseFloat(total.totalPrice)
+        }
+
+        localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart))
+        return updatedCart
+    };
+
+
+
 
   /**
    * Get updated products array
@@ -154,8 +160,8 @@ const XylophoneScreen = props => {
     if (process.browser) {
       let existingCart = localStorage.getItem('woo-next-cart');
       console.log('clicked')
-      console.log(existingCart)
-      if (existingCart) {
+      console.log('existingCart', existingCart)
+      if (existingCart!=null) {
           existingCart = JSON.parse(existingCart)
           const qtyToBeAdded = 1
           const updatedCart = updateCart(existingCart, productArray[2], qtyToBeAdded);
@@ -164,9 +170,7 @@ const XylophoneScreen = props => {
           const newCart = addFirstProduct(productArray[2]);
           setCart(newCart)
       }
-
-    router.push('/cart')
-
+      router.push('/cart')
     }
   }
 

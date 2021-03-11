@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Garanties from "../components/GarantiesMaxEtLea";
@@ -12,6 +12,7 @@ import {Carousel} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import {useSelector, useDispatch} from "react-redux";
 import * as productAction from '../store/actions/product'
+import {AppContext} from "../context/AppContext";
 
 
 
@@ -46,6 +47,8 @@ const HomeScreen = () => {
 
    */
 
+  const [ cart, setCart ] = useContext( AppContext );
+  console.log('cart', cart)
 
   const { t, i18n } = useTranslation();
 

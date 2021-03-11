@@ -126,3 +126,22 @@ th {
   transition: all 0.2s !important;
   border-width: 0px !important;
 }
+
+.total-panier {
+  background-color: #fbfbfb;
+  padding: 0.2% 0
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-text {
+  border: 1px solid rgba(0, 0, 0, .1);
+  width: 95.5%;
+}
+
+.total-price {
+  border: 1px solid rgba(0, 0, 0, .1);
+}

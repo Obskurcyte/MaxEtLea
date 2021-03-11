@@ -12,11 +12,15 @@ import PlayBoardScreen from "./screens/PlayBoardScreen";
 import XylophoneScreen from "./screens/XylophoneScreen";
 import TourScreen from "./screens/TourScreen";
 import CartScreen from "./screens/CartScreen";
+import CheckoutScreen from "./screens/CheckoutScreen";
+import PaiementScreen from "./screens/PaiementScreen";
+import PaiementRecapScreen from "./screens/PaiementRecapScreen";
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {Provider} from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import productReducer from "./store/reducers/product";
 import {AppProvider} from "./context/AppContext";
+
 
 
 const rootReducer = combineReducers({
@@ -43,6 +47,9 @@ function App() {
       <Route path="/xylophone" component={XylophoneScreen} />
       <Route path="/tour" component={TourScreen} />
       <Route path="/cart" component={CartScreen} />
+      <Route path="/checkout" component={CheckoutScreen} />
+      <Route path="/payment" component={PaiementScreen} />
+      <Route path="/payment-recap" component={PaiementRecapScreen} />
     </Router>
     </Suspense>
     </Provider>

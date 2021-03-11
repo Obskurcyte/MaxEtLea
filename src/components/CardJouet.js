@@ -1,5 +1,6 @@
 import React from 'react';
-import "./CardJouet.css"
+import "./CardJouet.css";
+import {Link} from "react-router-dom";
 
 const CardJouet = props => {
   return (
@@ -9,7 +10,7 @@ const CardJouet = props => {
           <h2 className="best-seller">{props.seller}</h2>
           <h1 className="jouet-title">{props.title}</h1>
           <h5 className="jouet-text">{props.description}</h5>
-          <button className="jouet-button"><a href={props.navigation}>Voir produit</a></button>
+          <button className="jouet-button"><Link to={props.navigation}>Voir produit</Link></button>
         </div>
       <div className="jouet-img">
         <img src="https://maxandlea.com/wp-content/uploads/2020/10/VueProduit-Tablette-MaxAndLea-2-min.png" alt="" className={props.className}/>

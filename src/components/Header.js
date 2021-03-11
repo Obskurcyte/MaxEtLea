@@ -25,9 +25,6 @@ const Header = () => {
   const { t, i18n } = useTranslation();
 
 
-  console.log(cart)
-  console.log(cart.totalProductCount)
-
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -38,8 +35,6 @@ const Header = () => {
     i18n.changeLanguage(lang);
     setAnchorEl(null);
   };
-
-  console.log('cart', cart)
   return (
       <Navbar bg="light" expand="lg" collapseOnSelect>
         <div style={{backgroundColor: '#E72C59', textAlign: 'center'}}>

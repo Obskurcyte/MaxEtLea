@@ -1,34 +1,39 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Header from "../components/Header";
 import {AppContext} from "../context/AppContext";
 import {Table} from 'react-bootstrap';
 import './CartScreen.css'
 import CartItem from "../components/CartItem";
+import {useHistory, Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import * as productAction from "../store/actions/product";
 
 const CartScreen = props => {
 
 
-  let valueCount = 1;
-  const onIncreaseClick = () => {
-    valueCount ++;
-    document.querySelector('.change-quantity').value = valueCount;
-  }
-
-  const onDecreaseClick = () => {
-    if (valueCount === 1) {
-      return;
-    } else {
-      valueCount --;
-      document.querySelector('.change-quantity').value = valueCount;
+  const [cart, setCart] = useContext(AppContext)
+  let totalPrice1 = 0;
+  if (cart) {
+    for (let data in cart.products) {
+      totalPrice1 += parseFloat(cart.products[data].totalPrice)
     }
   }
-
-
-  const handleRemoveProduct = () => {
-
-  };
-  const [cart, setCart] = useContext(AppContext)
   console.log(cart)
+
+  const isProductInCart = (existingProductsInCart, productId) => {
+    const returnItemThatExists = (item, index) => {
+      if (productId === item.productId) {
+        return item;
+      }
+    };
+
+    const newArray = existingProductsInCart.filter(returnItemThatExists)
+
+    return existingProductsInCart.indexOf(newArray[0]);
+  };
+
+
+
   return (
     <div>
       <Header />
@@ -36,6 +41,7 @@ const CartScreen = props => {
 
         <h1>Votre panier</h1>
         { cart ? (
+          <div>
           <div className="container">
           <Table>
             <thead>
@@ -56,7 +62,6 @@ const CartScreen = props => {
                     key={item.productId}
                     item={item}
                     setCart={setCart}
-                    handleRemoveProduct={handleRemoveProduct}
                   />
                   )
                 )
@@ -90,10 +95,32 @@ const CartScreen = props => {
             </tbody>
           </Table>
           </div>
-        ): ''}
+            <div className="cart-total">
+              <div className="col-6">
+                <div className="total-panier">
+                  <h2>Total panier</h2>
+                </div>
+                <div className='total'>
+                  <div className="total-text">
+                    <h5 >Total</h5>
+                  </div>
+                  <div className="total-price">
+                    <p>{totalPrice1} €</p>
+                  </div>
+                </div>
+                 <div>
+                    <p>Aucune méthode de livraison disponible pour un panier de ce poids. Veuillez ajuster le nombre d'articles dans votre panier.</p>
 
-          <button className="cart-valide">Valider la commande</button>
-      </div>
+                 </div>
+              </div>
+            </div>
+            <Link to="/checkout">
+              <button className="cart-valide">Valider la commande</button>
+            </Link>
+          </div>
+        ): <h1>Vous n'avez aucun article dans votre panier</h1>}
+
+          </div>
     </div>
   )
 };
