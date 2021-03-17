@@ -32,7 +32,6 @@ const BlogScreen = props => {
     return <h2>Pas de blogs dispo</h2>
   }
 
-
   if (blogArray.length !== 0) {
     return (
       <div>
@@ -65,6 +64,7 @@ const BlogScreen = props => {
                     </Card.Body>
                   </Card>
                   </Col>
+
                   )
               })}
             </Row>
