@@ -15,16 +15,19 @@ import CartScreen from "./screens/CartScreen";
 import CheckoutScreen from "./screens/CheckoutScreen";
 import PaiementScreen from "./screens/PaiementScreen";
 import PaiementRecapScreen from "./screens/PaiementRecapScreen";
+import BlogMathScreen from "./screens/BlogMathScreen";
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {Provider} from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import productReducer from "./store/reducers/product";
+import blogReducer from "./store/reducers/blog";
 import {AppProvider} from "./context/AppContext";
 
 
 
 const rootReducer = combineReducers({
   product: productReducer,
+  blog: blogReducer
 });
 
 
@@ -50,6 +53,7 @@ function App() {
       <Route path="/checkout" component={CheckoutScreen} />
       <Route path="/payment" component={PaiementScreen} />
       <Route path="/payment-recap" component={PaiementRecapScreen} />
+      <Route path="/blog-math" component={BlogMathScreen} />
     </Router>
     </Suspense>
     </Provider>

@@ -15,8 +15,6 @@ import * as productAction from '../store/actions/product'
 import {AppContext} from "../context/AppContext";
 
 
-
-
 const HomeScreen = () => {
 
   const dispatch = useDispatch();

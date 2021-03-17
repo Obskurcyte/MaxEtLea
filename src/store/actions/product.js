@@ -2,7 +2,8 @@ import gql from "graphql-tag";
 import client from "../../components/ApolloClient";
 
 export const GET_PRODUCTS = "GET_PRODUCTS";
-export const GET_PRODUCTS_LOCAL = "GET_PRODUCTS_LOCAL"
+export const GET_PRODUCTS_LOCAL = "GET_PRODUCTS_LOCAL";
+
 const PRODUCTS_QUERY = gql `query GetProducts {
   products {
     nodes {
