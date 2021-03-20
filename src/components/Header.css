@@ -23,6 +23,7 @@ a {
   height: 50px;
   position: relative;
   bottom: 10%;
+  margin-top: 1.5%;
 }
 .img-navbar  {
   max-width: 100%;
@@ -41,7 +42,7 @@ a:hover{
   font-size: 20px!important;
   color: #54595F!important;
   margin-right: 3%;
-  margin-top: 3%;
+  margin-top: 10%;
 }
 
 .account-shopping {
@@ -58,14 +59,14 @@ a:hover{
 
 .img-pays {
   height: 10%;
-  margin-top: 5.1%;
+  margin-top: 6.1%;
 }
 
 .button-pays {
   background-color: white;
   border: none;
   height: 30px;
-  margin-top: 3.8%;
+  margin-top: 4.7%;
 }
 
 .fa-sort-down {

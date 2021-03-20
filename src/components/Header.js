@@ -36,10 +36,11 @@ const Header = () => {
     setAnchorEl(null);
   };
   return (
+    <div>
+      <div style={{backgroundColor: '#E72C59', textAlign: 'center'}}>
+        <h1 style={{margin: 0, color: 'white', fontSize: '1.5rem'}}>Livraison GRATUITE en Europe (3-5 jours) à partir de 30€ d'achat</h1>
+      </div>
       <Navbar bg="light" expand="lg" collapseOnSelect>
-        <div style={{backgroundColor: '#E72C59', textAlign: 'center'}}>
-          <h1 style={{margin: 0, color: 'white'}}>Livraison GRATUITE en Europe (3-5 jours) à partir de 30€ d'achat</h1>
-        </div>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto nav-bar">
             <div className="img-container"><img src="https://maxandlea.com/wp-content/uploads/2020/05/Logo-Max-et-Lea_Plan-de-travail-1-1536x567.png" alt="" className="img-navbar"/></div>
@@ -96,6 +97,7 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+    </div>
   )
 }
 

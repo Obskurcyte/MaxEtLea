@@ -24,7 +24,7 @@ const BlogScreen = props => {
     dispatch(blogAction.getBlogMath())
   }, [dispatch])
 
-  const blogArray = blogs.blogs
+  const blogArray = blogs.blogs.slice(1)
   console.log(blogs)
   console.log(blogArray)
 
@@ -49,11 +49,11 @@ const BlogScreen = props => {
           </div>
 
           <div className="card-blog-container">
-            <Row>
+            <Row className="row-card">
               {blogArray.map(item => {
                 return (
-                  <Col sm={3} md={3} lg={3} xl={3}>
-                  <Card style={{ width: '18rem' }} className="card-list-container">
+                  <Col sm={4} md={4} lg={4} xl={4} className="col-card">
+                  <Card className="card-list-container">
                     <Card.Img variant="top" src={item.featuredImage.node.sourceUrl} className="math-image" />
                     <Card.Body className="card-body">
                       <Card.Title className="card-title">{item.title}</Card.Title>

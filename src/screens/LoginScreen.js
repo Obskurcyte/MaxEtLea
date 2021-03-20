@@ -4,6 +4,7 @@ import {Formik} from "formik";
 import './LoginScreen.css';
 import Footer from "../components/Footer";
 import {useTranslation} from "react-i18next";
+import axios from 'axios';
 
 
 const LoginScreen = props => {
@@ -24,10 +25,14 @@ const LoginScreen = props => {
         <div className="login-form">
           <Formik
             initialValues={initialValues}
-            onSubmit={async (values) =>  {
+            onSubmit={async (values) => {
               const siteUrl = "https://maxandlea.fr/graphql"
+              const loginData = {
+                username: values.email,
+                password: values.password
+              }
               setIsLoading(true)
-              const res = await fetch(`${siteUrl}/wp-json/jwt-auth/v1/token`, {
+              /* const res = await fetch(`${siteUrl}/wp-json/jwt-auth/v1/token`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
@@ -40,6 +45,16 @@ const LoginScreen = props => {
               console.log(res)
               console.log(values.email)
              }
+
+               */
+
+              axios.post(`${siteUrl}/wp-json/jwt-auth/v1/token`, loginData)
+                .then(res => {
+                  console.log(res)
+                }).catch(err => {
+                  console.log(err)
+              })
+            }
             }
           >
             {props => (

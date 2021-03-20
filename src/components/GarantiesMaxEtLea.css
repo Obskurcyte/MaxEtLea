@@ -8,6 +8,7 @@
   flex-direction: column;
   padding: 5%;
   text-align: center;
+  width: 25%;
 }
 
 .fas {
@@ -42,5 +43,9 @@
   font-weight: 300;
   line-height: 1.6em;
   letter-spacing: 0.4px;
+}
+
+.garanties-supercontainer {
+  padding-top: 5%;
 }
 
