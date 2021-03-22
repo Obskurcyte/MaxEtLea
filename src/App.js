@@ -22,12 +22,15 @@ import ReduxThunk from 'redux-thunk';
 import productReducer from "./store/reducers/product";
 import blogReducer from "./store/reducers/blog";
 import {AppProvider} from "./context/AppContext";
+import MesCommandesScreen from "./screens/MesCommandesScreen";
+import commandeReducer from "./store/reducers/commandes";
 
 
 
 const rootReducer = combineReducers({
   product: productReducer,
-  blog: blogReducer
+  blog: blogReducer,
+  commande: commandeReducer
 });
 
 
@@ -37,7 +40,6 @@ function App() {
   return (
     <AppProvider>
     <Provider store={store}>
-    <Suspense fallback="loading">
     <Router>
       <Route path="/" component={HomeScreen} exact />
       <Route path="/about" component={AProposScreen} />
@@ -54,8 +56,8 @@ function App() {
       <Route path="/payment" component={PaiementScreen} />
       <Route path="/payment-recap" component={PaiementRecapScreen} />
       <Route path="/blog-math" component={BlogMathScreen} />
+      <Route path="/mes-commandes" component={MesCommandesScreen} />
     </Router>
-    </Suspense>
     </Provider>
     </AppProvider>
   );

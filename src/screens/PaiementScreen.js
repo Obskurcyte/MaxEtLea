@@ -5,12 +5,14 @@ import {AppContext} from "../context/AppContext";
 import {useHistory} from 'react-router-dom'
 import {ListGroup} from "react-bootstrap";
 import {PayPalButton} from "react-paypal-button-v2";
-
+import {useDispatch} from "react-redux";
+import * as commandeActions from '../store/actions/commandes';
 const PaiementScreen = props => {
 
   const [ cart, setCart ] = useContext( AppContext );
   console.log('cart', cart)
 
+  const dispatch = useDispatch();
   let totalPrice1 = 0;
   if (cart) {
     for (let data in cart.products) {
@@ -22,6 +24,7 @@ const PaiementScreen = props => {
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult)
+    dispatch(commandeActions.createCommande())
     router.push('/payment-recap')
     localStorage.removeItem('woo-next-cart')
     console.log(cart)

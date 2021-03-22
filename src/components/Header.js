@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React, {Suspense, useState} from 'react';
 import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import "./Header.css";
@@ -19,6 +19,12 @@ const Header = () => {
       totalPrice1 += parseFloat(cart.products[data].totalPrice)
     }
   }
+  let user = '';
+
+  if (localStorage.getItem('userName')) {
+    user = localStorage.getItem('userName');
+  }
+
   const productCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductCount : '';
   const totalPrice = (null !== cart && Object.keys(cart).length) ? cart.totalProductsPrice: '';
 
@@ -31,9 +37,10 @@ const Header = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = (lang) => {
-    i18n.changeLanguage(lang);
-    setAnchorEl(null);
+  const [imgurl, setImgUrl] = useState("https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png")
+
+  const handleClose = (lang, url) => {
+    i18n.changeLanguage(lang).then(() => setAnchorEl(null)).then(() => setImgUrl(url));
   };
   return (
     <div>
@@ -59,7 +66,7 @@ const Header = () => {
             <LinkContainer to="/blog">
               <Nav.Link>{t("Navbar.5")}</Nav.Link>
             </LinkContainer>
-            <img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="" className="img-pays"/>
+            <img src={imgurl} alt="" className="img-pays"/>
             <button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} className="button-pays">
               <i className="fas fa-sort-down" />
             </button>
@@ -70,17 +77,17 @@ const Header = () => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={() => handleClose('fr')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt=""/></MenuItem>
-              <MenuItem onClick={() => handleClose('en')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt=""/></MenuItem>
-              <MenuItem onClick={() => handleClose('esp')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt=""/></MenuItem>
-              <MenuItem onClick={() => handleClose('al')}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/langfr-225px-Flag_of_Germany.svg.png" className="drapeau-allemand" alt=""/></MenuItem>
+              <MenuItem onClick={() => handleClose('en', 'https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt=""/></MenuItem>
+              <MenuItem onClick={() => handleClose('esp', 'https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt=""/></MenuItem>
+              <MenuItem onClick={() => handleClose('de', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/langfr-225px-Flag_of_Germany.svg.png')}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/langfr-225px-Flag_of_Germany.svg.png" className="drapeau-allemand" alt=""/></MenuItem>
+              <MenuItem onClick={() => handleClose('fr', 'https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt=""/></MenuItem>
 
             </Menu>
             <div className="account-shopping">
               <div className="account-icon">
               <i className="fas fa-id-card"/>
-              <LinkContainer to="/login">
-                <Nav.Link>{t("Navbar.6")}</Nav.Link>
+              <LinkContainer to={user ? '/mes-commandes' : '/login'}>
+                <Nav.Link>{ user ? `Bienvenue ${user}` : 'Mon compte'}</Nav.Link>
               </LinkContainer>
               </div>
               <LinkContainer to="/cart">
@@ -89,7 +96,6 @@ const Header = () => {
                     {productCount ? <span style={{color: 'black'}}>{productCount}</span> : ''}
                     <i className="fas fa-shopping-basket" />
                     {totalPrice1 ? <span>€{totalPrice1.toFixed(2)}</span> : ''}
-
                   </div>
                 </Nav.Link>
               </LinkContainer>

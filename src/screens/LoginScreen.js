@@ -5,15 +5,20 @@ import './LoginScreen.css';
 import Footer from "../components/Footer";
 import {useTranslation} from "react-i18next";
 import axios from 'axios';
-
+import {Redirect} from "react-router";
+import {useHistory} from "react-router";
 
 const LoginScreen = props => {
 
   const { t, i18n } = useTranslation();
 
-  const [loading, setIsLoading] = useState(false)
+  const [loading, setIsLoading] = useState(false);
+  const [token, setToken] = useState('');
+  const [userNiceName, setUserNiceName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [loggedIn, setIsLoggedIn] = useState(false);
 
-
+  const router = useHistory()
   const initialValues = {
     email: '',
     password: ''
@@ -26,7 +31,7 @@ const LoginScreen = props => {
           <Formik
             initialValues={initialValues}
             onSubmit={async (values) => {
-              const siteUrl = "https://maxandlea.fr/graphql"
+              const siteUrl = "https://maxandlea.fr"
               const loginData = {
                 username: values.email,
                 password: values.password
@@ -49,11 +54,30 @@ const LoginScreen = props => {
                */
 
               axios.post(`${siteUrl}/wp-json/jwt-auth/v1/token`, loginData)
-                .then(res => {
-                  console.log(res)
-                }).catch(err => {
-                  console.log(err)
+            .then(res => {
+                if (undefined === res.data.token) {
+                  setIsLoading(false)
+                  return;
+                }
+                console.log(res.data)
+                localStorage.setItem('userID', res.data.user_id)
+                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('userName', res.data.user_nicename);
+
+              setIsLoading(false)
+              setToken(res.data.token)
+              setUserNiceName(res.data.user_nicename)
+              setUserEmail(res.data.user_email)
+              setIsLoggedIn(true)
+
+              }).catch(err => {
+                setIsLoading(false)
               })
+
+              console.log(loggedIn)
+              if (loggedIn || localStorage.getItem('token')) {
+                router.push('/')
+              }
             }
             }
           >
