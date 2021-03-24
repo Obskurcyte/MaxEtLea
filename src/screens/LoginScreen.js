@@ -59,10 +59,13 @@ const LoginScreen = props => {
                   setIsLoading(false)
                   return;
                 }
+
                 console.log(res.data)
-                localStorage.setItem('userID', res.data.user_id)
+
+                localStorage.setItem('userID', res.data.user_id);
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('userName', res.data.user_nicename);
+                localStorage.setItem('email', res.data.user_email);
 
               setIsLoading(false)
               setToken(res.data.token)

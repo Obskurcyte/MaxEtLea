@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from "react-router-dom";
-
+import {useHistory} from "react-router-dom";
 import {gql, useQuery, useMutation} from "@apollo/client";
 import YourOrder from "../components/YourOrder";
 import PaymentModes from "../components/PaymentModes";
@@ -24,15 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CheckoutScreen = props => {
 
-  const initialValues = {
-    nom: '',
-    prenom:'',
-    adresse: '',
-    postalcode: '',
-    ville: '',
-    pays: '',
-    phone: ''
-  }
+  const router = useHistory()
 
   const countries = [
     {
@@ -55,6 +47,16 @@ const CheckoutScreen = props => {
 
 
 
+  const initialValues = {
+    nom: '',
+    prenom:'',
+    adresse: '',
+    postalcode: '',
+    ville: '',
+    pays: '',
+    phone: ''
+  }
+
   const [ cart, setCart ] = useContext( AppContext );
 
   const classes = useStyles();
@@ -69,6 +71,14 @@ const CheckoutScreen = props => {
           initialValues={initialValues}
           onSubmit={values => {
             console.log(values)
+            localStorage.setItem('prenom', values.prenom)
+            localStorage.setItem('nom', values.nom)
+            localStorage.setItem('adresse', values.adresse)
+            localStorage.setItem('postalcode', values.postalcode)
+            localStorage.setItem('ville', values.ville)
+            localStorage.setItem('pays', values.pays)
+            localStorage.setItem('phone', values.phone)
+            router.push('/payment')
           }}
         >
           {props => (
@@ -78,26 +88,34 @@ const CheckoutScreen = props => {
               <div>
                 <TextField
                   required
+                  value={props.values.prenom}
+                  onChange={props.handleChange('prenom')}
                   id="outlined-error"
                   label="Prénom"
                   variant="outlined"
                 />
                 <TextField
                   id="outlined-error"
+                  value={props.values.nom}
+                  onChange={props.handleChange('nom')}
                   required
                   label="Nom"
                   variant="outlined"
                 />
               </div>
-                <div>
+              <div>
                 <TextField
                   required
+                  value={props.values.adresse}
+                  onChange={props.handleChange('adresse')}
                   id="outlined-error"
                   label="Numéro et nom de rue"
                   variant="outlined"
                 />
                 <TextField
                   required
+                  value={props.values.postalcode}
+                  onChange={props.handleChange('postalcode')}
                   id="outlined-error"
                   label="Code postal"
                   variant="outlined"
@@ -105,11 +123,15 @@ const CheckoutScreen = props => {
               </div>
                 <TextField
                   required
+                  value={props.values.ville}
+                  onChange={props.handleChange('ville')}
                   label="Ville"
                   variant="outlined"
                 />
                 <TextField
                   select
+                  value={props.values.pays}
+                  onChange={props.handleChange('pays')}
                   label="Select"
                   helperText="Veuillez sélectionner un pays"
                   defaultValue="France"
@@ -122,6 +144,17 @@ const CheckoutScreen = props => {
                 </TextField>
               </div>
 
+                <div>
+                  <TextField
+                    required
+                    value={props.values.phone}
+                    onChange={props.handleChange('phone')}
+                    id="outlined-error"
+                    label="Numéro de téléphone"
+                    variant="outlined"
+                  />
+                </div>
+
               <div className="your-orders">
                 {/*	Order*/}
                 <h2 className="text-xl font-medium mb-4">Votre commande</h2>
@@ -131,7 +164,7 @@ const CheckoutScreen = props => {
               </div>
               </div>
               <Link to="/payment">
-                <button className="cart-valide">Aller à l'étape suivante</button>
+                <button className="cart-valide" onClick={props.handleSubmit}>Aller à l'étape suivante</button>
               </Link>
             </form>
           )

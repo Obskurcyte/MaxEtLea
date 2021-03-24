@@ -1,10 +1,25 @@
-.baby-container  {
-  display: flex;
-  background: linear-gradient(#F5F4F4, 5%, white, 90%, lightgray);
-  height: 500px;
-  max-width: 100%;
+@font-face {
+  font-family: "D KButterfly Ball";
+  src: local('D KButterfly Ball'), url("../fonts/butterfly.otf");
 }
 
+.baby-container  {
+  background: linear-gradient(#F5F4F4, 5%, white, 90%, lightgray);
+  height: 1127px;
+  width: 100%;
+  padding-top: 5%;
+}
+
+.head-title {
+  font-size: 58px;
+  letter-spacing: 1px;
+  color: #e72c59;
+  font-family: "D KButterfly Ball", serif;
+  text-align: center;
+  z-index: 2;
+  position: absolute;
+  left: 32%;
+}
 .subheadtitle {
   color: #5A5A5A;
   font-size: 22px;
@@ -22,11 +37,11 @@
   letter-spacing: 2.5px;
 }
 .baby-photo {
-  width: 30%;
+  width: 65%;
   height: 60%;
-  position: relative;
-  top: 10%;
-  left: 10%;
+  position: absolute;
+  left: 19%;
+  bottom: 5%;
 }
 
 .products-container {
@@ -170,4 +185,48 @@
   font-size: 50px;
   margin-top: 10%;
   margin-bottom: 10%
+}
+
+.head-title-container {
+  margin: 0 auto;
+  width: 100%;
+  z-index: 2;
+}
+
+.description-title {
+  font-size: 25px;
+  letter-spacing: 0px;
+  color: #00b2cc;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  padding: 1% 35%;
+  position: absolute;
+  top: 55%;
+  z-index: 2;
+}
+
+.shop-access {
+  width: 336px;
+  height: 86px;
+  border-radius: 43px;
+  background-color: #f13f57;
+  position: absolute;
+  top: 140%;
+  left: 40%;
+}
+
+.link-shop-container {
+  width: 100%;
+  height: 67px;
+  text-align: center;
+  margin: auto;
+  padding-top: 3%;
+}
+
+.link-shop {
+  color: #ffffff;
+  font-family: "D KButterfly Ball";
+  letter-spacing: 0px;
+  font-size: 39px;
+  text-decoration: none!important;
 }

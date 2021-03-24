@@ -8,7 +8,9 @@ import { useTranslation } from 'react-i18next';
 import {AppProvider} from "../context/AppContext";
 import {AppContext} from "../context/AppContext";
 import {useContext} from 'react';
-
+import {Link} from "react-router-dom";
+import drapeau_francais from '../assets/drapeau-francais.png';
+import shopping_cart from '../assets/shopping-cart.png';
 
 const Header = () => {
 
@@ -44,11 +46,20 @@ const Header = () => {
   };
   return (
     <div>
-      <div style={{backgroundColor: '#E72C59', textAlign: 'center'}}>
-        <h1 style={{margin: 0, color: 'white', fontSize: '1.5rem'}}>Livraison GRATUITE en Europe (3-5 jours) à partir de 30€ d'achat</h1>
+      <div style={{backgroundColor: '#e72c59', textAlign: 'center', height: '70px'}}>
+        <h1 className="free-livraison">Livraison GRATUITE en Europe (3-5 jours) à partir de 30€ d'achat</h1>
       </div>
       <Navbar bg="light" expand="lg" collapseOnSelect>
         <Navbar.Collapse id="responsive-navbar-nav">
+          <div className="drapeau-container">
+            <p className="langue">Fr</p>
+            <img src={drapeau_francais} alt="drapeau français" className="drapeau-img"/>
+          </div>
+          <div className="my-account">
+            <Link to={user ? '/mes-commandes' : '/login'}>
+            <p className="my-account-text">{ user ? `Bienvenue ${user}` : 'Mon compte'}</p>
+            </Link>
+          </div>
           <Nav className="ml-auto nav-bar">
             <div className="img-container"><img src="https://maxandlea.com/wp-content/uploads/2020/05/Logo-Max-et-Lea_Plan-de-travail-1-1536x567.png" alt="" className="img-navbar"/></div>
             <LinkContainer to="/">
@@ -84,18 +95,15 @@ const Header = () => {
 
             </Menu>
             <div className="account-shopping">
-              <div className="account-icon">
-              <i className="fas fa-id-card"/>
-              <LinkContainer to={user ? '/mes-commandes' : '/login'}>
-                <Nav.Link>{ user ? `Bienvenue ${user}` : 'Mon compte'}</Nav.Link>
-              </LinkContainer>
-              </div>
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <div className="woo-next-cart-wrap">
-                    {productCount ? <span style={{color: 'black'}}>{productCount}</span> : ''}
-                    <i className="fas fa-shopping-basket" />
-                    {totalPrice1 ? <span>€{totalPrice1.toFixed(2)}</span> : ''}
+
+                  <div className="cart-wrap">
+                    {productCount && (<div className="products-count-container">
+                      <div className='product-count-inner-container'>{productCount ? <span className="product-count-text">{productCount}</span> : ''}</div>
+                    </div>)}
+                    <img src={shopping_cart} alt="shopping cart"/>
+                    {totalPrice1 ? <span className="total-price-span">€{totalPrice1.toFixed(2)}</span> : ''}
                   </div>
                 </Nav.Link>
               </LinkContainer>

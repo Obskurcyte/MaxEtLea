@@ -13,7 +13,8 @@ import {useTranslation} from "react-i18next";
 import {useSelector, useDispatch} from "react-redux";
 import * as productAction from '../store/actions/product'
 import {AppContext} from "../context/AppContext";
-
+import frerePhoto from '../assets/frere-et-soeur.png';
+import {Link} from "react-router-dom";
 
 const HomeScreen = () => {
 
@@ -59,12 +60,21 @@ const HomeScreen = () => {
         <div>
           <Header/>
           <div className="baby-container">
-            <img src="https://maxandlea.com/wp-content/uploads/2020/06/BébéBasAge-MaxAndLeaV.jpg" alt=""
-                 className="baby-photo"/>
-            <div className="eveil">
-              <h1 className="headtitle">{t("HomeScreen.1")}</h1>
-              <h2 className="subheadtitle">{t("HomeScreen.2")}</h2>
-              <button className="eveil-button">{t("HomeScreen.3")}</button>
+            <div className="head-title-container">
+             <h1 className="head-title">S'EVEILLER, S'EMERVEILLER, <br/> GRANDIR ET S'AMUSER</h1>
+            </div>
+            <div>
+              <p className="description-title">Des jouets Naturels, Eco-Responsables
+                et parfaits pour les 1 à 6 ans.</p>
+            </div>
+            <div className="baby-photo">
+              <img src={frerePhoto} alt="frere et soeur"/>
+            </div>
+
+            <div className="shop-access">
+              <div className="link-shop-container">
+               <Link className="link-shop">ACCEDER AU SHOP</Link>
+              </div>
             </div>
           </div>
           <div>
