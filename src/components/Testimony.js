@@ -1,12 +1,10 @@
 import React from 'react';
 import './Testimony.css';
-
+import CarouselParents from "./Carousel";
 
 const Testimony = props => {
   return (
-    <div className="testimony-container">
-      <h1 className="testimony-title">Nos parents témoignent</h1>
-    </div>
+ <div></div>
   )
 };
 

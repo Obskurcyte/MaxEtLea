@@ -8,7 +8,7 @@ import './HomeScreen.css';
 import Testimony from "../components/Testimony";
 import GrosCardJouet from "../components/GrosCardJouet";
 import CarouselParents from "../components/Carousel";
-import {Carousel} from "react-bootstrap";
+import Carousel from 'react-elastic-carousel';
 import {useTranslation} from "react-i18next";
 import {useSelector, useDispatch} from "react-redux";
 import * as productAction from '../store/actions/product'
@@ -21,6 +21,8 @@ import xylophone from '../assets/xylophone.png';
 import photo100 from '../assets/100.png'
 import {Link} from "react-router-dom";
 import gif from '../assets/ml.gif';
+
+
 
 const HomeScreen = () => {
 
@@ -94,7 +96,7 @@ const HomeScreen = () => {
                 </div>
                 <div className="shop-access2">
                   <div className="link-shop-container">
-                    <Link className="link-shop">VOIR PRODUIT</Link>
+                    <Link className="link-shop" to="/playboard">VOIR PRODUIT</Link>
                   </div>
                 </div>
               </div>
@@ -109,7 +111,7 @@ const HomeScreen = () => {
                   </div>
                   <div className="shop-access3">
                     <div className="link-shop-container">
-                      <Link className="link-shop">VOIR PRODUIT</Link>
+                      <Link className="link-shop" to="/xylophone">VOIR PRODUIT</Link>
                     </div>
                   </div>
                 </div>
@@ -122,7 +124,7 @@ const HomeScreen = () => {
                   </div>
                   <div className="shop-access3">
                     <div className="link-shop-container">
-                      <Link className="link-shop">VOIR PRODUIT</Link>
+                      <Link className="link-shop" to="/tour">VOIR PRODUIT</Link>
                     </div>
                   </div>
                 </div>
@@ -143,8 +145,9 @@ const HomeScreen = () => {
             <Engagement/>
           </div>
 
-          <div>
-            <Testimony/>
+          <div className="testimony-container">
+            <h1 className="testimony-title">Nos parents témoignent</h1>
+            <CarouselParents />
           </div>
 
           <Footer/>
