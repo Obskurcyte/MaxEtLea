@@ -13,9 +13,6 @@ const CartItem = ({item}) => {
 
   let router = useHistory();
 
-  const [viewCart, setViewCart] = useState(false);
-
-
   const dispatch = useDispatch();
   const product = useSelector(state => state.product);
 
@@ -25,7 +22,8 @@ const CartItem = ({item}) => {
 
   const productArray = product.products;
 
-  console.log(productArray[2])
+  console.log(productArray)
+
   // const [cart, setCart] = useContext(AppContext);
 
 
@@ -57,6 +55,7 @@ const CartItem = ({item}) => {
 
     let newCart = {
       products: [],
+      image: "Bonjour",
       totalProductCount: 1,
       totalProductsPrice: productPrice
     }

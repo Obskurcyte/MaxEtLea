@@ -14,10 +14,18 @@ import {useSelector, useDispatch} from "react-redux";
 import * as productAction from '../store/actions/product'
 import {AppContext} from "../context/AppContext";
 import frerePhoto from '../assets/frere-et-soeur.png';
+import playboardPhoto from '../assets/playboard.png';
+import bestSeller from '../assets/bestSeller.png';
+import tour from '../assets/tour.png';
+import xylophone from '../assets/xylophone.png';
+import photo100 from '../assets/100.png'
 import {Link} from "react-router-dom";
+import gif from '../assets/ml.gif';
 
 const HomeScreen = () => {
 
+
+  let productArray = [];
   const dispatch = useDispatch();
   const product = useSelector(state => state.product);
 
@@ -25,26 +33,16 @@ const HomeScreen = () => {
     dispatch(productAction.getProducts())
   }, [dispatch])
 
-  const productArray = product.products
+
+  if (product.products) {
+    productArray = product.products
+  }
+
   console.log(productArray)
 
   if (productArray.length !== 0) {
     console.log(productArray[4].name)
   }
-
-
-
-
-  /*const [products, setProducts] = useState([]);
-  useEffect(() => {
-    (async function() {
-      const product = await getProducts();
-      console.log(product.products)
-      setProducts(product.products)
-    }());
-  }, [products])
-
-   */
 
   const [ cart, setCart ] = useContext( AppContext );
   console.log('cart', cart)
@@ -52,7 +50,10 @@ const HomeScreen = () => {
   const { t, i18n } = useTranslation();
 
     if (productArray.length === 0) {
-      return <h1>Pas de produit disponibles</h1>
+      return (
+        <div className="gif-container">
+          <img src={gif} alt="" className="gif"/>
+        </div>)
     }
 
     if (productArray.length !==0) {
@@ -61,19 +62,18 @@ const HomeScreen = () => {
           <Header/>
           <div className="baby-container">
             <div className="head-title-container">
-             <h1 className="head-title">S'EVEILLER, S'EMERVEILLER, <br/> GRANDIR ET S'AMUSER</h1>
+             <h1 className="head-title">{t("HomeScreen1")}<br/> {t("HomeScreen7")}</h1>
             </div>
             <div>
-              <p className="description-title">Des jouets Naturels, Eco-Responsables
-                et parfaits pour les 1 à 6 ans.</p>
+              <p className="description-title">{t("HomeScreen2")}</p>
             </div>
             <div className="baby-photo">
-              <img src={frerePhoto} alt="frere et soeur"/>
+              <img src={frerePhoto} alt="frere et soeur" className="frere-photo"/>
             </div>
 
             <div className="shop-access">
               <div className="link-shop-container">
-               <Link className="link-shop">ACCEDER AU SHOP</Link>
+               <Link className="link-shop">{t("HomeScreen3")}</Link>
               </div>
             </div>
           </div>
@@ -81,70 +81,72 @@ const HomeScreen = () => {
             <Garanties/>
           </div>
           <div className="best-jouets" style={{textAlign: 'center', backgroundColor: '#F5F5F5'}}>
-            <h1 className="garanties-title">{t("HomeScreen.4")}</h1>
+            <h1 className="best-jouets-title">{t("HomeScreen4")}</h1>
             <div className="products-container">
-              <div>
-                <GrosCardJouet seller="Best Seller" title={productArray[4].name}
-                               description="L'outil d'éveil et d'apprentissage le plus complet pour les enfants de 1 à 6 ans."
-                               className="jouet1-img" navigation={"/playboard"}/>
+              <div className="playboard-container">
+                <h2 className="playboard-title1">PLAYBOARD</h2>
+                <p className="playboard-description1">L'outil d'éveil et d'apprentissage le plus complet pour les enfants de 1 à 6 ans</p>
+                <div className="playboard-image-container">
+                  <img src={playboardPhoto} alt="playboard" className="playboard-image1"/>
+                </div>
+                <div className="best-seller-image-container">
+                  <img src={bestSeller} alt="best-seller" className="best-seller-image"/>
+                </div>
+                <div className="shop-access2">
+                  <div className="link-shop-container">
+                    <Link className="link-shop">VOIR PRODUIT</Link>
+                  </div>
+                </div>
               </div>
-              <div>
-                <CardJouet title="Le Xylophone" description="Il découvre ses premières notes musicales"
-                           className="jouet2-img" navigation="/xylophone"/>
-                <CardJouet title="Tour Arc en Ciel" description="Organiser les couleurs et les dégradés"
-                           className="jouet2-img" navigation="/tour"/>
+
+              <div className="other-products-container">
+
+                <div className="xylophone-container">
+                  <h2 className="xylophone-title">XYLOPHONE</h2>
+                  <p className="xylophone-description">Il découvre ses premières notes de musique</p>
+                  <div className="xylophone-image-container">
+                    <img src={xylophone} alt="xylophone" className="xylophone-image"/>
+                  </div>
+                  <div className="shop-access3">
+                    <div className="link-shop-container">
+                      <Link className="link-shop">VOIR PRODUIT</Link>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="tour-container">
+                  <h2 className="tour-title">TOUR ARC EN CIEL</h2>
+                  <p className="xylophone-description">Organiser les couleurs et les dégradés</p>
+                  <div className="tour-image-container">
+                    <img src={tour} alt="xylophone" className="tour-image"/>
+                  </div>
+                  <div className="shop-access3">
+                    <div className="link-shop-container">
+                      <Link className="link-shop">VOIR PRODUIT</Link>
+                    </div>
+                  </div>
+                </div>
+
+
               </div>
             </div>
           </div>
           <div className="emerveillement">
-            <h1 className="emerveillement-titre">{t("HomeScreen.5")}</h1>
-            <button className="emerveillement-button">{t("HomeScreen.6")}</button>
+            <h1 className="emerveillement-titre">JE VEUX EMERVEILLER MES ENFANTS</h1>
+            <div className="shop-access">
+              <div className="link-shop-container">
+                <Link className="link-shop">ACCEDER AU SHOP</Link>
+              </div>
+            </div>
           </div>
           <div>
             <Engagement/>
           </div>
+
           <div>
             <Testimony/>
+          </div>
 
-          </div>
-          <div className="unique">
-            <h1 className="unique-title">{t("HomeScreen.7")}<br/> {t("HomeScreen.8")}</h1>
-            <div className="photo-enfants">
-              <img src="https://maxandlea.com/wp-content/uploads/2020/05/Be%CC%81be%CC%812ans.jpg" alt=""/>
-              <img src="https://maxandlea.com/wp-content/uploads/2020/05/FilletteSouriante-1.jpg" alt=""/>
-              <img src="https://maxandlea.com/wp-content/uploads/2020/06/Be%CC%81be%CC%81Mouvements-MaxAndLea.jpg"
-                   alt=""/>
-              <img src="https://maxandlea.com/wp-content/uploads/2020/05/Garcon-assis.jpg" alt=""/>
-            </div>
-          </div>
-          <div className="jouet-emerveillement">
-            <h1 className="unique-title">{t("HomeScreen.9")}<br/> {t("HomeScreen.10")}</h1>
-            <div className="photos-emerveillement">
-              <div className="text-emerveillement">
-                <img src="https://maxandlea.com/wp-content/uploads/2020/06/GarconTableau2-MaxAndLea-1.jpg" alt=""/>
-                <i className="fas fa-dove"/>
-                <p>{t("HomeScreen.11")}</p>
-              </div>
-              <div className="text-emerveillement">
-                <img
-                  src="https://maxandlea.com/wp-content/uploads/2020/06/Be%CC%81be%CC%81Allonge%CC%81-2LOGO-MaxAndLea.jpg"
-                  alt=""/>
-                <i className="fas fa-drafting-compass"/>
-                <p>{t("HomeScreen.12")}</p>
-              </div>
-              <div className="text-emerveillement">
-                <img src="https://maxandlea.com/wp-content/uploads/2020/06/4ans-Garc%CC%A7on-MaxAndLea.jpg" alt=""/>
-                <i className="fas fa-child"/>
-                <p>{t("HomeScreen.13")}</p>
-              </div>
-              <div className="text-emerveillement">
-                <img src="https://maxandlea.com/wp-content/uploads/2020/06/Be%CC%81be%CC%81Machouille-MaxAndLea-1.jpg"
-                     alt=""/>
-                <i className="fas fa-tree"/>
-                <p>{t("HomeScreen.14")}</p>
-              </div>
-            </div>
-          </div>
           <Footer/>
         </div>
       )

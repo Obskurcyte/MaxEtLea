@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "../components/Header";
 import CardJouet from "../components/CardJouet";
 import * as blogAction from "../store/actions/blog";
@@ -7,10 +7,12 @@ import {Link} from "react-router-dom";
 import './BlogScreen.css';
 import {Card, Row, Col} from "react-bootstrap";
 import Footer from "../components/Footer";
+import gif from "../assets/ml.gif";
 
 
 const BlogScreen = props => {
 
+  let blogArray = []
   const dispatch = useDispatch();
   const blogs = useSelector(state => state.blog);
   const blogMath = useSelector(state => state.blogMath);
@@ -24,13 +26,22 @@ const BlogScreen = props => {
     dispatch(blogAction.getBlogMath())
   }, [dispatch])
 
-  const blogArray = blogs.blogs.slice(1)
+
+  if (blogs.blogs) {
+    blogArray = blogs.blogs.slice(1)
+  }
+
   console.log(blogs)
   console.log(blogArray)
 
   if (blogArray.length===0) {
-    return <h2>Pas de blogs dispo</h2>
+    return (
+      <div className="gif-container">
+        <img src={gif} alt="" className="gif"/>
+      </div>)
   }
+
+
 
   if (blogArray.length !== 0) {
     return (

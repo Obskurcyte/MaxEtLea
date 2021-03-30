@@ -1,14 +1,20 @@
 .footer-container {
   display: flex;
-  padding: 2% 15%;
+  padding: 2% 10%;
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
+  background-color: #f1f1f1;
   box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
 }
 
 a {
-  color: #020101;
+  font-size: 22px;
+  letter-spacing: 0px;
+  color: #666666;
+  font-weight: 300;
+  font-family: "Roboto";
+  text-decoration: none;
 }
 .copyright {
   color: #6EC1E4;
@@ -29,6 +35,8 @@ a {
 
 .footer-img {
   width: 20%;
+  display: flex;
+  flex-direction: column;
 }
 
 .img-footer-arbre {
@@ -65,4 +73,15 @@ a {
   color: red;
   font-size: 200%;
   margin-right: 5%;
+}
+
+
+@media screen and (max-width: 1000px){
+  .footer-container  {
+    padding: 2% 5%;
+  }
+}
+
+@media screen and (max-width: 650px){
+
 }

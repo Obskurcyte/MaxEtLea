@@ -11,9 +11,16 @@ import {useContext} from 'react';
 import {Link} from "react-router-dom";
 import drapeau_francais from '../assets/drapeau-francais.png';
 import shopping_cart from '../assets/shopping-cart.png';
+import i18next from "i18next";
+import CardHover from "./CardHover";
 
 const Header = () => {
 
+  const { t, i18n } = useTranslation();
+
+  const [open, setOpen] = useState(false);
+
+  const lang = i18next.language;
   const [cart, setCart] = useContext(AppContext);
   let totalPrice1 = 0;
   if (cart) {
@@ -30,8 +37,6 @@ const Header = () => {
   const productCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductCount : '';
   const totalPrice = (null !== cart && Object.keys(cart).length) ? cart.totalProductsPrice: '';
 
-  const { t, i18n } = useTranslation();
-
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -41,9 +46,17 @@ const Header = () => {
 
   const [imgurl, setImgUrl] = useState("https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png")
 
+  console.log(open)
   const handleClose = (lang, url) => {
     i18n.changeLanguage(lang).then(() => setAnchorEl(null)).then(() => setImgUrl(url));
   };
+
+  const renderCart = () => {
+
+    return <CardHover />
+
+  }
+
   return (
     <div>
       <div style={{backgroundColor: '#e72c59', textAlign: 'center', height: '70px'}}>
@@ -52,8 +65,8 @@ const Header = () => {
       <Navbar bg="light" expand="lg" collapseOnSelect>
         <Navbar.Collapse id="responsive-navbar-nav">
           <div className="drapeau-container">
-            <p className="langue">Fr</p>
-            <img src={drapeau_francais} alt="drapeau français" className="drapeau-img"/>
+            <p className="langue">{lang}</p>
+            <img src={imgurl} alt="drapeau français" className="drapeau-img" onClick={handleClick}/>
           </div>
           <div className="my-account">
             <Link to={user ? '/mes-commandes' : '/login'}>
@@ -63,24 +76,20 @@ const Header = () => {
           <Nav className="ml-auto nav-bar">
             <div className="img-container"><img src="https://maxandlea.com/wp-content/uploads/2020/05/Logo-Max-et-Lea_Plan-de-travail-1-1536x567.png" alt="" className="img-navbar"/></div>
             <LinkContainer to="/">
-              <Nav.Link>{t("Navbar.1")}</Nav.Link>
+              <Nav.Link>{t("NavBar1")}</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/shop">
-              <Nav.Link >{t("Navbar.2")}</Nav.Link>
+              <Nav.Link >{t("NavBar2")}</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/about">
-              <Nav.Link>{t("Navbar.3")}</Nav.Link>
+              <Nav.Link>{t("NavBar3")}</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/contact">
-              <Nav.Link>{t("Navbar.4")}</Nav.Link>
+              <Nav.Link>{t("NavBar4")}</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/blog">
-              <Nav.Link>{t("Navbar.5")}</Nav.Link>
+              <Nav.Link>{t("NavBar5")}</Nav.Link>
             </LinkContainer>
-            <img src={imgurl} alt="" className="img-pays"/>
-            <button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} className="button-pays">
-              <i className="fas fa-sort-down" />
-            </button>
             <Menu
               id="simple-menu"
               anchorEl={anchorEl}
@@ -89,8 +98,8 @@ const Header = () => {
               onClose={handleClose}
             >
               <MenuItem onClick={() => handleClose('en', 'https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt=""/></MenuItem>
-              <MenuItem onClick={() => handleClose('esp', 'https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt=""/></MenuItem>
-              <MenuItem onClick={() => handleClose('de', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/langfr-225px-Flag_of_Germany.svg.png')}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/langfr-225px-Flag_of_Germany.svg.png" className="drapeau-allemand" alt=""/></MenuItem>
+              <MenuItem onClick={() => handleClose('es', 'https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt=""/></MenuItem>
+              <MenuItem onClick={() => handleClose('al', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/langfr-225px-Flag_of_Germany.svg.png')}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/langfr-225px-Flag_of_Germany.svg.png" className="drapeau-allemand" alt=""/></MenuItem>
               <MenuItem onClick={() => handleClose('fr', 'https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png')}><img src="https://maxandlea.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt=""/></MenuItem>
 
             </Menu>
@@ -102,15 +111,17 @@ const Header = () => {
                     {productCount && (<div className="products-count-container">
                       <div className='product-count-inner-container'>{productCount ? <span className="product-count-text">{productCount}</span> : ''}</div>
                     </div>)}
-                    <img src={shopping_cart} alt="shopping cart"/>
+                    <img src={shopping_cart} alt="shopping cart" onMouseOver={() => setOpen(!open)}/>
                     {totalPrice1 ? <span className="total-price-span">€{totalPrice1.toFixed(2)}</span> : ''}
                   </div>
                 </Nav.Link>
+
               </LinkContainer>
             </div>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      {open && renderCart()}
     </div>
   )
 }

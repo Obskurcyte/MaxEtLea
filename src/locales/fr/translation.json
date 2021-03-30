@@ -1,39 +1,28 @@
 {
-  "Navbar": {
-    "1": "ACCUEIL",
-    "2": "SHOP",
-    "3": "A PROPOS",
-    "4": "CONTACT",
-    "5": "BLOG",
-    "6": "Mon compte"
-  },
-  "HomeScreen": {
-    "1": "S'ÉVEILLER, S'EMERVEILLER, GRANDIR & S'AMUSER",
-    "2": "Des jouets Naturels, Eco-Responsables et parfaits pour les 1 à 6 ans",
-    "3": "Accéder au shop",
-    "4": "NOS MEILLEURS JOUETS",
-    "5": "JE VEUX EMERVEILLER MES ENFANTS",
-    "6": "Accéder au shop",
-    "7": "Parce que chaque enfant est unique...",
-    "8": "Les jouets Max & Léa s'adaptent au rythme de chacun.",
-    "9": "Chez Max & Lea",
-    "10": "Nous concevons des jouets pour émerveiller vos enfants",
-    "11": "Chaque enfant est un petit génie !",
-    "12": "Donnez lui une boîte à outils pour explorer ses talents",
-    "13": "Il apprendra en s'amusant et à son rythme",
-    "14": "100% Bois : Sécure, Durable, & Eco-responsable"
-  },
-  "Garanties":  {
-    "1": "LES GARANTIES MAX & LEA",
-    "2": "100% Paiements sécurisés",
-    "3": "Connexion cryptée (SSL) et sécurisation des paiements par STRIPE et PayPal",
-    "4": "100% Satisfait ou Remboursé",
-    "5": "Si vous n'êtes pas pleinement satisfait, nous remboursons 100% de votre achat",
-    "6": "100% Service client réactif",
-    "7": "Notre service est à votre écoute 7/7 et répond dans un délai de 24h maximum",
-    "8": "100% Livraison Express",
-    "9": "Livraison depuis Paris (France) en 3-5 jours pour l’ensemble de l’Europe."
-  },
+  "NavBar1": "ACCUEIL",
+  "NavBar2": "SHOP",
+  "NavBar3": "A PROPOS",
+  "NavBar4": "CONTACT",
+  "NavBar5": "BLOG",
+
+  "Garanties1": "LES GARANTIES MAX & LEA",
+  "Garanties2": "100% Paiements sécurisés",
+  "Garanties3": "Connexion cryptée (SSL) et sécurisation des paiements par STRIPE et PayPal",
+  "Garanties4": "100% Satisfait ou Remboursé",
+  "Garanties5": "Si vous n'êtes pas pleinement satisfait, nous remboursons 100% de votre achat",
+  "Garanties6": "100% Service client réactif",
+  "Garanties7": "Notre service est à votre écoute 7/7 et répond dans un délai de 24h maximum",
+  "Garanties8": "100% Livraison Express",
+  "Garanties9": "Livraison depuis Paris (France) en 3-5 jours pour l’ensemble de l’Europe.",
+
+  "HomeScreen1": "S'ÉVEILLER, S'EMERVEILLER",
+  "HomeScreen7": "GRANDIR & S'AMUSER",
+  "HomeScreen2": "Des jouets Naturels, Eco-Responsables et parfaits pour les 1 à 6 ans",
+  "HomeScreen3": "Accéder au shop",
+  "HomeScreen4": "NOS MEILLEURS JOUETS",
+  "HomeScreen5": "JE VEUX EMERVEILLER MES ENFANTS",
+  "HomeScreen6": "Accéder au shop",
+
   "Engagement": {
     "1": "Max et Léa s'engagent à 100% pour vous",
     "2": "100% Sécurisé",
@@ -43,7 +32,7 @@
     "6": "100% Qualité",
     "7": "Conçue et dessinée en France. Finitions soignées. Conception robuste et Qualité des matériaux",
     "8": "100% Eveil",
-    "9": "Pensée pour le développement Psycho-moteur de l’enfant. Ludique et divertissante",
+    "9": "Pensée pour le développement Psycho-moteur de l’enfant. Ludique et divertissante"
   },
   "Footer": {
     "1": "A propos",
