@@ -4,6 +4,7 @@ import "./ContactScreen.css";
 import {Formik} from 'formik'
 import Footer from "../components/Footer";
 import {useTranslation} from "react-i18next";
+import axios from 'axios';
 import nodemailer from 'nodemailer';
 import {useHistory} from "react-router";
 
@@ -33,25 +34,16 @@ const ContactScreen = props => {
           onSubmit={async values => {
             console.log(values)
             try {
-              const response = await fetch('http://localhost:5000/send', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  nom: values.nom,
-                  prenom: values.prenom,
-                  email: values.email,
-                  sujet: values.sujet,
-                  message: values.message
-                })
+              await axios.post("http://localhost:5000/send", {
+                nom: values.nom,
+                prenom: values.prenom,
+                email: values.email,
+                sujet: values.sujet,
+                message: values.message
               })
-              const resData = await response.json()
-              console.log(resData)
             } catch (err) {
               console.log(err)
             }
-
           }
           }
         >
