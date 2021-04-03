@@ -27,10 +27,18 @@ a {
 .footer-column {
   display: flex;
   flex-direction: column;
+  margin-top: 5%;
+  width: 40%;
+}
+
+.icons-social {
+  display: flex;
+  margin-left: 10%
 }
 
 .img-footer {
-  max-width: 70%;
+  width: 100%;
+  margin-top: 8%;
 }
 
 .footer-img {
@@ -82,6 +90,9 @@ a {
   }
 }
 
-@media screen and (max-width: 650px){
-
+@media screen and (max-width: 750px){
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

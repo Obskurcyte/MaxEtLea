@@ -4,13 +4,83 @@
 }
 
 .baby-container  {
-  background: linear-gradient(#F5F4F4, 5%, white, 90%, lightgray);
-  height: 1127px;
+  height: 1500px;
   width: 100%;
   padding-top: 5%;
   position: relative;
+  align-items: center;
 }
 
+.row-card-home {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+  width: 65%;
+}
+
+.row-card-home-special {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+  width: 65%;
+}
+
+
+
+.img-card {
+  position: relative;
+  bottom: 25%;
+}
+.card-jouet-title {
+  font-size: 26px;
+  letter-spacing: 1px;
+  line-height: 74px;
+  color: #ffffff;
+  font-family: "D KButterfly Ball", sans-serif;
+}
+.card-jouet {
+  width: 45%;
+  height: 65%;
+  padding: 2%;
+  border-radius: 2px;
+}
+
+.playboard {
+  background-image: radial-gradient(circle at center, #f97b99 0%, #e4345e 100%);
+
+}
+
+.tour {
+  background-image: radial-gradient(circle at center, #9fd5e5 0%, #00c6ff 100%);
+}
+
+.xylophone {
+  background-image: radial-gradient(circle at center, #ead843 0%, #ff7e00 100%);
+}
+
+.bidule {
+  background-image: radial-gradient(circle at center, #6ffd9b 0%, #0aad0c 100%);
+}
+
+.bidule2 {
+  background-image: radial-gradient(circle at center, #e185f8 0%, #b02ce7 100%);
+}
+
+.bidule3 {
+  background-image: radial-gradient(circle at center, #6cf8d9 0%, #00b494 100%);
+}
+
+.bidule4 {
+  background-image: radial-gradient(circle at center, #ffaa7b 1%, #fd4700 100%);
+}
+
+.bidule5 {
+  background-image: radial-gradient(circle at center, #ffaa7b 1%, #fd4700 100%);
+}
+
+.img-tour {
+  height: 80%;
+}
 .head-title {
   font-size: 58px;
   letter-spacing: 1px;
@@ -201,11 +271,27 @@
   color: #00b2cc;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  padding: 1% 35%;
-  position: absolute;
-  top: 20%;
+  padding: 1% 25%;
   z-index: 2;
 }
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70%;
+  margin-top: 10%;
+  align-items: center;
+}
+
+.image-card {
+  width: 100%;
+}
+
+.image-card-container {
+  background-image: radial-gradient(circle at center, #f97b99 0%, #e4345e 100%);
+}
+
 
 .frere-photo {
   width: 100%;
@@ -410,13 +496,16 @@
     bottom: 18%;
   }
   .baby-container {
-    height: 1300px;
+    height: 1900px;
+  }
+  .grid-container {
+    margin-top: 14%;
   }
 }
 
 @media screen and (min-width: 1700px){
   .baby-container {
-    height: 1300px;
+    height: 2000px;
   }
   .baby-photo {
     bottom: 22%;
@@ -425,10 +514,32 @@
 
 @media screen and (min-width: 2000px){
   .baby-container {
-    height: 1500px;
+    height: 1800px;
   }
   .baby-photo {
     bottom: 24%;
+  }
+}
+
+
+@media screen and (max-width: 1500px){
+  .baby-photo {
+    bottom: 18%;
+  }
+  .drapeau-container {
+    left: 46%;
+  }
+  .baby-container {
+    height: 1900px;
+  }
+  .grid-container {
+    margin-top: 14%;
+  }
+  .description-title {
+    padding: 1% 20%;
+  }
+  .img-card {
+    width: 120%;
   }
 }
 
@@ -455,12 +566,8 @@
 }
 
 @media screen and (max-width: 1300px){
-  .nav-bar {
-    padding-left: 10%;
-    padding-right: 2%;
-  }
   .baby-container {
-    height: 1000px;
+    height: 1900px;
   }
   .link-shop {
     font-size: 30px;
@@ -470,6 +577,9 @@
 @media screen and (max-width: 1200px){
   .tour-title {
     font-size: 40px;
+  }
+  .drapeau-container {
+    left: 43%;
   }
   .xylophone-title {
     font-size: 40px;
@@ -483,6 +593,10 @@
   .other-products-container {
     max-width: 100%;
   }
+  .baby-container {
+    height: 1750px;
+  }
+
 }
 
 @media screen and (max-width: 1050px){
@@ -491,7 +605,16 @@
     padding-left: 8%;
   }
   .baby-container {
-    height: 900px;
+    height: 1900px;
+  }
+  .row-card-home {
+    width: 90%;
+  }
+  .drapeau-container {
+    left: 45%;
+  }
+  .row-card-home-special {
+    width: 90%;
   }
   .shop-access {
     top: 60%;
@@ -508,9 +631,15 @@
   .link-shop {
     font-size: 20px;
   }
+  .card-jouet-title {
+    font-size: 20px;
+  }
+  .grid-container {
+    margin-top: 18%;
+  }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
   .products-container {
     padding: 0!important;
   }
@@ -519,5 +648,140 @@
   }
   .playboard-title1 {
     font-size: 60px;
+  }
+  .description-title {
+    padding: 1% 10%;
+  }
+  .baby-container {
+    height: 1700px;
+  }
+  .satisfactions {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .drapeau-container {
+    left: 44%;
+  }
+  .img-container {
+    margin-top: 4%;
+  }
+  .nav-bar {
+    padding-right: 0%;
+    padding-left: 10%
+  }
+  .account-shopping {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 680px){
+  .row-card-home {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  nav {
+    position: sticky;
+  }
+  .bidule4 {
+    height: 70%!important;
+  }
+
+  .row-card-home-special {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .grid-container {
+    margin-top: 70%;
+  }
+  .card-jouet-title {
+    font-size: 26px;
+  }
+  .img-card {
+    width: 100%;
+  }
+  .card-jouet {
+    width: 90%;
+    height: 35%;
+    margin: 5% auto;
+  }
+  .baby-container {
+    height: 3500px;
+  }
+}
+
+@media screen and (max-width: 600px){
+
+  .grid-container {
+    margin-top: 73%;
+  }
+
+  .card-jouet {
+    width: 95%;
+    height: 35%;
+    margin: 5% auto
+  }
+  .baby-container {
+    height: 3300px;
+  }
+  .description-title {
+    padding : 0
+  }
+}
+
+
+@media screen and (max-width: 525px){
+
+  .grid-container {
+    margin-top: 65%;
+  }
+
+  .card-jouet {
+    width: 95%;
+    height: 35%;
+    margin: 5% auto
+  }
+  .baby-container {
+    height: 3200px;
+  }
+}
+
+@media screen and (max-width: 400px){
+
+  .grid-container {
+    margin-top: 65%;
+  }
+
+  .card-jouet {
+    width: 100%;
+    height: 40%;
+  }
+  .baby-container {
+    height: 3200px;
+  }
+  .description-title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 375px){
+
+  .grid-container {
+    margin-top: 65%;
+  }
+
+  .card-jouet {
+    width: 100%;
+    height: 40%;
+  }
+  .baby-container {
+    height: 2700px;
+  }
+  .description-title {
+    font-size: 20px;
   }
 }

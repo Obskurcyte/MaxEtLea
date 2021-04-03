@@ -2,10 +2,12 @@
   width: 1280px;
   margin: 50px auto;
   min-height: 200px;
-  overflow: hidden;
   position: relative;
 }
 
+.carsousel-container .carousel-inner {
+  overflow: hidden;
+}
 .carousel-container .track {
   display: flex;
 }
@@ -15,6 +17,8 @@
   padding-right: 15px;
   height: 250px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .carousel-container .card-container .card {
@@ -22,6 +26,7 @@
   height: 100%;
   border: 1px solid black;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .nav button {
@@ -42,3 +47,19 @@
   right: -30px;
 }
 
+.card > * {
+  flex: 1;
+}
+
+.card .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card .info {
+  flex-basis: 40px;
+  flex-grow: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #333;
+}

@@ -11,12 +11,13 @@ import smile from '../assets/ellipse2.png'
 const Engagement = () => {
   const { t, i18n } = useTranslation();
   return (
-    <div className="garanties-supercontainer">
+    <div className="engagement-container">
       <h1 style={{textAlign: 'center'}} className="garanties-title">Max et Léa s'engage à</h1>
       <div className="container-photo1">
         <img src={photo100} alt="" className="photo1"/>
       </div>
       <div className="satisfactions">
+        <div className="satisfaction-mini-container">
         <div className="inner-satisfaction">
           <div>
             <img src={childcare} alt="" className="image-garanties"/>
@@ -31,7 +32,9 @@ const Engagement = () => {
           <h3 className="garanties-undertitle">{t("Engagement.4")}</h3>
           <p className="garanties-paragraph">{t("Engagement.5")}</p>
         </div>
-        <div className="inner-satisfaction2">
+        </div>
+        <div className="satisfaction-mini-container">
+        <div className="inner-satisfaction">
           <div>
             <img src={stars} alt="" className="image-garanties"/>
           </div>
@@ -44,6 +47,7 @@ const Engagement = () => {
           </div>
           <h3 className="garanties-undertitle">{t("Engagement.8")}</h3>
           <p className="garanties-paragraph">{t("Engagement.9")}</p>
+        </div>
         </div>
       </div>
     </div>

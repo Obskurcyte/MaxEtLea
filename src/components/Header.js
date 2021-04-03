@@ -13,6 +13,7 @@ import drapeau_francais from '../assets/drapeau-francais.png';
 import shopping_cart from '../assets/shopping-cart.png';
 import i18next from "i18next";
 import CardHover from "./CardHover";
+import home from '../assets/home.png';
 
 const Header = () => {
 
@@ -62,34 +63,18 @@ const Header = () => {
       <div style={{backgroundColor: '#e72c59', textAlign: 'center', height: '70px'}}>
         <h1 className="free-livraison">Livraison GRATUITE en Europe (3-5 jours) à partir de 30€ d'achat</h1>
       </div>
-      <Navbar bg="light" expand="lg" collapseOnSelect>
-        <Navbar.Collapse id="responsive-navbar-nav">
+
+        <nav>
           <div className="drapeau-container">
             <p className="langue">{lang}</p>
             <img src={imgurl} alt="drapeau français" className="drapeau-img" onClick={handleClick}/>
           </div>
-          <div className="my-account">
-            <Link to={user ? '/mes-commandes' : '/login'}>
-            <p className="my-account-text">{ user ? `Bienvenue ${user}` : 'Mon compte'}</p>
-            </Link>
-          </div>
           <Nav className="ml-auto nav-bar">
             <div className="img-container"><img src="https://maxandlea.com/wp-content/uploads/2020/05/Logo-Max-et-Lea_Plan-de-travail-1-1536x567.png" alt="" className="img-navbar"/></div>
-            <LinkContainer to="/">
-              <Nav.Link>{t("NavBar1")}</Nav.Link>
+            <LinkContainer to="/" style={{marginTop: '5%'}}>
+              <Nav.Link><img src={home} alt="" style={{width: "80%"}} className="home"/></Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/shop">
-              <Nav.Link >{t("NavBar2")}</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/about">
-              <Nav.Link>{t("NavBar3")}</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/contact">
-              <Nav.Link>{t("NavBar4")}</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/blog">
-              <Nav.Link>{t("NavBar5")}</Nav.Link>
-            </LinkContainer>
+
             <Menu
               id="simple-menu"
               anchorEl={anchorEl}
@@ -119,8 +104,7 @@ const Header = () => {
               </LinkContainer>
             </div>
           </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+        </nav>
       {open && renderCart()}
     </div>
   )

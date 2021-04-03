@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from "../components/Header";
 import "./ContactScreen.css";
 import {Formik} from 'formik'
 import Footer from "../components/Footer";
 import {useTranslation} from "react-i18next";
+import nodemailer from 'nodemailer';
+import {useHistory} from "react-router";
+
 
 const ContactScreen = props => {
+
   const { t, i18n } = useTranslation();
 
-
+   const [success, setSuccess] = useState('')
   const initialValues = {
     nom: '',
     prenom: '',
@@ -26,29 +30,34 @@ const ContactScreen = props => {
       <div className="contact-form">
         <Formik
           initialValues={initialValues}
-          onSubmit={values => {
-              const response = fetch(
-                /* Je ne l'ai pas crée mais de ce que j'ai compris c'est toi qui t'en occupe */
-                `api/contact`,
-                {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    nom: values.nom,
-                    prenom: values.prenom,
-                    email: values.email,
-                    sujet: values.sujet,
-                    message: values.message
-                  })
-                }
-              );
+          onSubmit={async values => {
+            console.log(values)
+            try {
+              const response = await fetch('http://localhost:5000/send', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  nom: values.nom,
+                  prenom: values.prenom,
+                  email: values.email,
+                  sujet: values.sujet,
+                  message: values.message
+                })
+              })
+              const resData = await response.json()
+              console.log(resData)
+            } catch (err) {
+              console.log(err)
+            }
+
           }
           }
         >
           {props => (
             <div>
+              {success}
               <div className="nomprenom">
                 <div className="nom">
                   <label>{t("Contact.2")}<span className="star"> *</span></label>
@@ -90,7 +99,7 @@ const ContactScreen = props => {
                 />
               </div>
               <div className="container-send">
-                <button className="send" onClick={props.handleSubmit}>{t("Contact.7")}</button>
+                <button className="send" type="submit" onClick={props.handleSubmit}>{t("Contact.7")}</button>
               </div>
             </div>
           )}

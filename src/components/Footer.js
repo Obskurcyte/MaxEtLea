@@ -2,7 +2,8 @@ import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import './Footer.css';
 import {useTranslation} from "react-i18next";
-import facebook from '../assets/facebook.png'
+import facebook from '../assets/facebook.png';
+import {Link} from 'react-router-dom'
 import arbres from '../assets/arbres.png';
 import replante from '../assets/arbresReplantes.png';
 import logo from '../assets/logo_reforest.png';
@@ -14,24 +15,22 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-img">
           <img src="https://maxandlea.com/wp-content/uploads/2020/05/Logo-Max-et-Lea_Plan-de-travail-1-1024x378.png" alt="" className="img-footer"/>
-          <div style={{display: "flex", marginLeft: '7%'}}>
+          <div className="icons-social">
             <i className="fab fa-facebook"/>
             <i className="fab fa-instagram"/>
             <i className="fab fa-youtube"/>
           </div>
         </div>
           <div className="footer-column">
-            <a href="#">{t("Footer.1")}</a>
-            <a href="#">{t("Footer.2")}</a>
-            <a href="#">{t("Footer.3")}</a>
-            <a href="#">{t("Footer.4")}</a>
-            <a href="#">{t("Footer.5")}</a>
+            <a href="#">A propos </a>
+            <a href="#">L'équipe</a>
+            <Link to="/contact">Contactez-nous</Link>
           </div>
         <div className="footer-column">
-          <a href="#">Se connecter</a>
-          <a href="#">S'inscrire</a>
+          <a href="#">Mentions légales</a>
+          <a href="#">CGV</a>
         </div>
-        <div className="footer-column">
+        <div className="footer-column footer-terre" >
           <div style={{display: "flex", marginBottom: '10%', flexDirection: 'column'}}>
             <div>
              <img src={arbres} alt="" style={{marginBottom: '5%'}}/>
