@@ -25,21 +25,6 @@ import xylophoneCard from '../assets/xylophoneCard.png'
 const HomeScreen = () => {
 
 
-  let productArray = [];
-  const dispatch = useDispatch();
-  const product = useSelector(state => state.product);
-
-  useEffect(() => {
-    dispatch(productAction.getProducts())
-  }, [dispatch])
-
-
-  if (product.products) {
-    productArray = product.products
-  }
-
-  console.log(productArray)
-
   const useStyles = makeStyles((theme) => ({
     paper: {
       padding: theme.spacing(2),
