@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a21267dc.chunk.css",
+    "main.js": "/static/js/main.00e67e46.chunk.js",
+    "main.js.map": "/static/js/main.00e67e46.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c4a59525.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c4a59525.js.map",
+    "static/js/2.4f3bb4c6.chunk.js": "/static/js/2.4f3bb4c6.chunk.js",
+    "static/js/2.4f3bb4c6.chunk.js.map": "/static/js/2.4f3bb4c6.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.a21267dc.chunk.css.map": "/static/css/main.a21267dc.chunk.css.map",
+    "static/js/2.4f3bb4c6.chunk.js.LICENSE.txt": "/static/js/2.4f3bb4c6.chunk.js.LICENSE.txt",
+    "static/media/100.f647f784.png": "/static/media/100.f647f784.png",
+    "static/media/arbres.5c6ce9f3.png": "/static/media/arbres.5c6ce9f3.png",
+    "static/media/HomeScreen.css": "/static/media/butterfly.2d1f77e3.otf",
+    "static/media/ml.e81837b6.gif": "/static/media/ml.e81837b6.gif",
+    "static/media/playboard.f2b3f97b.png": "/static/media/playboard.f2b3f97b.png",
+    "static/media/playboardCard (1).c1f8d924.png": "/static/media/playboardCard (1).c1f8d924.png",
+    "static/media/tour.9886c1f5.png": "/static/media/tour.9886c1f5.png",
+    "static/media/tourCard.674f4d04.png": "/static/media/tourCard.674f4d04.png",
+    "static/media/xylophone.65bae993.png": "/static/media/xylophone.65bae993.png",
+    "static/media/xylophoneCard.43860f8b.png": "/static/media/xylophoneCard.43860f8b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c4a59525.js",
+    "static/js/2.4f3bb4c6.chunk.js",
+    "static/css/main.a21267dc.chunk.css",
+    "static/js/main.00e67e46.chunk.js"
+  ]
+}
