@@ -45,14 +45,14 @@ const CardHover = () => {
   return (
     <div className="hover-container">
       {
-        cart.products.length && (
+        cart ? (
           cart.products.map(item => (
               <CardHoverItem
                 item={item}
               />
             )
           )
-        )
+        ) : <p>Vous n'avez pas d'articles dans votre panier</p>
       }
       <div className="prix-container">
         <p className="subtotal">Sous-total : {totalPrice1} €</p>
