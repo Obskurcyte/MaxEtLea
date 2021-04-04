@@ -30,6 +30,7 @@
 .img-card {
   position: relative;
   bottom: 25%;
+  transition: transform .4s;
 }
 .card-jouet-title {
   font-size: 26px;
@@ -38,11 +39,26 @@
   color: #ffffff;
   font-family: "D KButterfly Ball", sans-serif;
 }
+.card-jouet a{
+  margin-top:-30px;
+}
+.card-jouet a:hover {
+  text-decoration: none;
+}
 .card-jouet {
   width: 45%;
   height: 65%;
   padding: 2%;
   border-radius: 2px;
+}
+
+.satisfactions {
+  max-width: 1400px;
+    margin: auto;
+}
+
+.card-jouet:hover .img-card {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .playboard {
